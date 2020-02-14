@@ -103,7 +103,7 @@ PA6          | /RTS serial interface, /RTS signal
 PA5          | /CD serial interface, /CD signal
 PA4          | /CTS serial interface, /CTS signal
 PA3          | /DSR serial interface, /DSR signal
-&#x1F535; **_PA2_**| **_/SEL Centronics "select" signal_**
+&#x1F535; **_PA2_**| **_SEL Centronics "select" signal_**
 &#x1F535; **_PA1_**| **_POUT Centronics "paper out" signal_**
 &#x1F535; **_PA0_**| **_BUSY Centronics "busy" signal_**
 &#x1F535; **_SP_** | **_BUSY connected directly to PA0_**
