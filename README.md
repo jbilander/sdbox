@@ -36,3 +36,21 @@ The Centronics interface on the Amiga should bring joy to any hacker's heart. It
 
 Internally all the Centronics port lines (except for +5V and Reset) are connected directly to the port lines of the individual CIA's. The exact assignment are as follows:
 
+    Centronics Pin No.     Function        CIA     Pin  Pin designation
+                1           Strobe          A       18      PC
+                2           Data bit 0      A       10      PB0
+                3           Data bit 1      A       11      PB1
+                4           Data bit 2      A       12      PB2
+                5           Data bit 3      A       13      PB3
+                6           Data bit 4      A       14      PB4
+                7           Data bit 5      A       15      PB5
+                8           Data bit 6      A       16      PB6
+                9           Data bit 7      A       17      PB7
+               10           Acknowledge     A       24      PB8
+               11           Busy            B        2      PA0
+                                                and 39      SP
+               12           Paper Out       B        3      PA1
+                                                and 40      CNT
+               13           Select          B        4      PA2
+ 
+ The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is read for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
