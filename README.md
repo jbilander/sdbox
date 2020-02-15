@@ -165,7 +165,7 @@ Here we'll just look at using the entire port as input or output. There is also 
 
     Offset                 Name                  Contents
     --------------------------------------------------------------------------------
-    48                     PWBuffLen             Length of the output buffer
+    48                     PWBufLen              Length of the output buffer
     52                     ParStatus             Status of the device
     53                     ParFlags              Parallel flags
     54-61                  PTermArray            Termination mask
@@ -176,7 +176,7 @@ Here we'll just look at using the entire port as input or output. There is also 
     --------------------------------------------------------------------------------
     0                      PSEL                  Printer selected
     1                      PAPEROUT              No more paper
-    2                      PBUSY                 Printer Busy
+    2                      PBUSY                 Printer busy
     3                      RWDIR                 Data diretion (0 = read, 1 = write)
     
     The following bits represent the parallel flags:
