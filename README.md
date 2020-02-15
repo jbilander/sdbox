@@ -163,3 +163,27 @@ Digital data can be both sent and received. It is also possible to program indiv
 
 Here we'll just look at using the entire port as input or output. There is also a device for this: the `parallel.device`. An extension must be made to the normal I/O structure in order to use this device. This extension has the following construction:
 
+    Offset                 Name                  Contents
+    --------------------------------------------------------------------------------
+    48                     PWBuffLen             Length of the output buffer
+    52                     ParStatus             Status of the device
+    53                     ParFlags              Parallel flags
+    54-61                  PTermArray            Termination mask
+    
+    The status byte contains the following status bits:
+    
+    Bit                    Name                  Meaning, if set
+    --------------------------------------------------------------------------------
+    0                      PSEL                  Printer selected
+    1                      PAPEROUT              No more paper
+    2                      PBUSY                 Printer Busy
+    3                      RWDIR                 Data diretion (0 = read, 1 = write)
+    
+    The following bits represent the parallel flags:
+    
+    Bit                    Name                  Meaning, if set
+    --------------------------------------------------------------------------------
+    1                      EOFMODE               EOF mode enabled
+    5                      SHARED                Access possible for other tasks
+    
+If you want to read from the parallel port, the question arises as to how the receiver is to recognize the end of the transfer. It is possible to use a given byte sequence to stop the reception. This sequence is stored in the two long words of `TermArray`. This termination sequence is activated if bit 1 of the flag byte is set `(EOFMODE)` and the `SETPARAMS` command `(10)` is then called.
