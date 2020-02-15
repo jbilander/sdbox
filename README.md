@@ -3,34 +3,33 @@
 
 Work-In-Progress...
 
-The parallel port (centronics interface) pinout for A500/A2000: 
+The parallel port (centronics interface) pinout for A1000, A500/A2000 and PC. On the Amiga 1000 some lines are used differently and the connector is of db25 female type.
 
-    Connector d-sub db25 male:
-
-    Output      1     Strobe (data ready)
-    I/O         2     Data 0
-    I/O         3     Data 1
-    I/O         4     Data 2
-    I/O         5     Data 3
-    I/O         6     Data 4
-    I/O         7     Data 5
-    I/O         8     Data 6
-    I/O         9     Data 7
-    Input      10     Ack (Acknowledge - data received)
-    I/O        11     Busy (Printer Busy)
-    I/O        12     POut (Paper Out)
-    I/O        13     Sel (Select - printer online)
-    Power      14     +5V for Pullup-resistor use only
-    -          15     Unused
-    Output     16     Reset (Buffered reset line from the Amiga)
-    Ground  17-25     GND
+              PIN     A1000                 A500/A2000        PC
+    ---------------------------------------------------------------------             
+    Output      1     /DRDY (data ready)    /STROBE           /STROBE
+    I/O         2     Data 0                Data 0            Data 0
+    I/O         3     Data 1                Data 1            Data 1
+    I/O         4     Data 2                Data 2            Data 2
+    I/O         5     Data 3                Data 3            Data 3
+    I/O         6     Data 4                Data 4            Data 4
+    I/O         7     Data 5                Data 5            Data 5
+    I/O         8     Data 6                Data 6            Data 6
+    I/O         9     Data 7                Data 7            Data 7
+    Input      10     /ACK (data received)  /ACK              /ACK
+    I/O        11     BUSY (data)           BUSY              BUSY
+    I/O        12     POUT (clk, Paper Out) POUT              POUT
+    I/O        13     SEL (printer online)  SEL               SEL
+               14     GND                   +5V Pullup        /AUTOFDXT
+               15     GND                   NC (Unused)       /ERROR
+               16     GND                   /RESET*           /INIT                  
+               17     GND                   GND               /SLCT IN                           
+            18-22     GND                   GND               GND
+               23     +5V Pullup            GND               GND
+               24     NC (Unused)           GND               GND
+               25     /RESET*               GND               GND
     
-    On the Amiga 1000 some lines are used differently and the connector is db25 female type
-    
-    Ground  14-22     GND
-    Power      23     +5V for Pullup-resistor use only
-    -          24     Unused
-    Output     25     Reset (Buffered reset line from the Amiga)
+    * Buffered reset line from the Amiga (Output)
 ***    
 
 The Centronics interface on the Amiga should bring joy to any hacker's heart. It is completely PC compatible. Unfortunately, the Amiga 1000 Centronics port does not conform to the PC standard. First, a female connector was used instead of the usual male db25 connector, and second pin 23 is +5V instead of ground as it is usually on most printer cables. If such a cable is used with the A1000, a short occurs and the Amiga can be damaged.
