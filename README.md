@@ -121,7 +121,7 @@ PC           | not used
 
 ***
 
-The addresses `$BFD000` for CIA-B and `$BFE001` CIA-A are the base of the CIAs specified by Commodore. The selection between the two CIAs is made with address line A12 and A13. CIA-A is selected when `A12=0` and CIA-B is selected when `A13=0`. Since the data bus of CIA-A is connected to processor data lines `D0-D7 (odd addresses)` and CIA-B to `D8-D15 (even addresses)`, the two can be accessed together in one word access if A12 and A13 are both 0.
+The addresses `$BFE001` for CIA-A and `$BFD000` for CIA-B are the base of the CIAs specified by Commodore. The selection between the two CIAs is made with address line A12 and A13. CIA-A is selected when `A12=0` and CIA-B is selected when `A13=0`. Since the data bus of CIA-A is connected to processor data lines `D0-D7 (odd addresses)` and CIA-B to `D8-D15 (even addresses)`, the two can be accessed together in one word access if `A12` and `A13` are both 0.
 
 The addressing scheme for the CIA's can be summarized as follows. CIA-A is selected by the following addresses (binary):
 
