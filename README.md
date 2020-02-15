@@ -151,3 +151,15 @@ The four bits designated rrrr select the corresponding registers. The various re
     $BFEE01 : 1011 1111 1110 1110 0000 0001   $BFDE00 : 1011 1111 1101 1110 0000 0000   CRA     Control register A
     $BFEF01 : 1011 1111 1110 1111 0000 0001   $BFDF00 : 1011 1111 1101 1111 0000 0000   CRB     Control register B
 
+***
+
+The simplest way to program this interface is directly through the hardware registers. This has the disadvantage that problems can occur with multitasking if another program wants to access this interface, thus it is better to access it through Amiga DOS. The data format is then predefined but you lose the ability to program individual bits as inputs and outputs, however.
+
+***
+
+### Digital I/O
+
+Digital data can be both sent and received. It is also possible to program individual bits of the eight bit data lines as inputs and the rest as outputs. This is only possible with direct programming of the hardware register `$BFE301`.
+
+Here we'll just look at using the entire port as input or output. There is also a device for this: the `parallel.device`. An extension must be made to the normal I/O structure in order to use this device. This extension has the following construction:
+
