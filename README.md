@@ -21,7 +21,7 @@ The parallel port (centronics interface) pinout for A500/A2000:
     I/O        12     POut (Paper Out)
     I/O        13     Sel (Select - printer online)
     Power      14     +5V for Pullup-resistor use only
-               15     Unused
+    -          15     Unused
     Output     16     Reset (Buffered reset line from the Amiga)
     Ground  17-25     GND
     
@@ -29,7 +29,7 @@ The parallel port (centronics interface) pinout for A500/A2000:
     
     Ground  14-22     GND
     Power      23     +5V for Pullup-resistor use only
-               24     Unused
+    -          24     Unused
     Output     25     Reset (Buffered reset line from the Amiga)
 ***    
 
@@ -121,7 +121,7 @@ PC           | not used
 
 ***
 
-The addresses $BFD000 for CIA-B and $BFE001 CIA-A are the base of the CIAs specified by Commodore. The selection between the two CIAs is made with address line A12 and A13. CIA-A is selected when A12=0 and CIA-B is selected when A13=0. Since the data bus of CIA-A is connected to processor data lines D0-D7 (odd addresses) and CIA-B to D8-D15 (even addresses), the two can be accessed together in one word access if A12 and A13 are both 0.
+The addresses `$BFD000` for CIA-B and `$BFE001` CIA-A are the base of the CIAs specified by Commodore. The selection between the two CIAs is made with address line A12 and A13. CIA-A is selected when `A12=0` and CIA-B is selected when `A13=0`. Since the data bus of CIA-A is connected to processor data lines `D0-D7 (odd addresses)` and CIA-B to `D8-D15 (even addresses)`, the two can be accessed together in one word access if A12 and A13 are both 0.
 
 The addressing scheme for the CIA's can be summarized as follows. CIA-A is selected by the following addresses (binary):
 
@@ -131,4 +131,24 @@ and CIA-B by:
 
     101x xxxx xx0x rrrr xxxx xxx0
     
-The four bits designated rrrr select the corresponding registers.
+The four bits designated rrrr select the corresponding registers. The various registers of the CIAs appear multiple times in the range from `$A00000` to `$BFFFFF`. Here are the addresses of the individual registers at their normal positions:
+
+    CIA-A                                     CIA-B                                     Name    Function
+    ---------------------------------------------------------------------------------------------------------------------
+    $BFE001 : 1011 1111 1110 0000 0000 0001   $BFD000 : 1011 1111 1101 0000 0000 0000   PA      Port register A
+    $BFE101 : 1011 1111 1110 0001 0000 0001   $BFD100 : 1011 1111 1101 0001 0000 0000   PB      Port register B
+    $BFE201 : 1011 1111 1110 0010 0000 0001   $BFD200 : 1011 1111 1101 0010 0000 0000   DDRA    Data direction register A
+    $BFE301 : 1011 1111 1110 0011 0000 0001   $BFD300 : 1011 1111 1101 0011 0000 0000   DDRB    Data direction register B
+    $BFE401 : 1011 1111 1110 0100 0000 0001   $BFD400 : 1011 1111 1101 0100 0000 0000   TALO    Timer A low byte
+    $BFE501 : 1011 1111 1110 0101 0000 0001   $BFD500 : 1011 1111 1101 0101 0000 0000   TAHI    Timer A high value
+    $BFE601 : 1011 1111 1110 0110 0000 0001   $BFD600 : 1011 1111 1101 0110 0000 0000   TBLO    Timer B low byte
+    $BFE701 : 1011 1111 1110 0111 0000 0001   $BFD700 : 1011 1111 1101 0111 0000 0000   TBHI    Timer B high byte
+    $BFE801 : 1011 1111 1110 1000 0000 0001   $BFD800 : 1011 1111 1101 1000 0000 0000   E. LSB  Event counter bits 0-7
+    $BFE901 : 1011 1111 1110 1001 0000 0001   $BFD900 : 1011 1111 1101 1001 0000 0000   E. MID  Event counter bits 8-15
+    $BFEA01 : 1011 1111 1110 1010 0000 0001   $BFDA00 : 1011 1111 1101 1010 0000 0000   E. MSB  Event counter bits 16-23
+    $BFEB01 : 1011 1111 1110 1011 0000 0001   $BFDB00 : 1011 1111 1101 1011 0000 0000   -       Unused
+    $BFEC01 : 1011 1111 1110 1100 0000 0001   $BFDC00 : 1011 1111 1101 1100 0000 0000   SP      Serial port register
+    $BFED01 : 1011 1111 1110 1101 0000 0001   $BFDD00 : 1011 1111 1101 1101 0000 0000   IRC     Interrupt control register
+    $BFEE01 : 1011 1111 1110 1110 0000 0001   $BFDE00 : 1011 1111 1101 1110 0000 0000   CRA     Control register A
+    $BFEF01 : 1011 1111 1110 1111 0000 0001   $BFDF00 : 1011 1111 1101 1111 0000 0000   CRB     Control register B
+
