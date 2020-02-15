@@ -62,7 +62,7 @@ The Centronics interface is a parallel interface. The data byte lies on the eigh
 
 The printer uses the BUSY line to indicate that it is occupied and can not accept any more data at the moment. This occurs when the printer buffer is full, for example. The computer then waits until BUSY goes high again before it continues sending data. With the Paper Out line the printer tells the computer that it is out of paper. The select line is also controlled by the printer and indicates whether it is ONLINE (selected, SEL high) or OFFLINE (unselected, SEL low).
 
-The Centronics port is well suited as a universal interface for connecting home-built expansions or an audio digitizer or an EPROM burner, since almost all of the lines can be programmed to be either inputs or outputs.
+The Centronics port is well suited as a universal interface for connecting home-built expansions such as an audio digitizer or an EPROM burner, since almost all of the lines can be programmed to be either inputs or outputs.
 
 ***
 
