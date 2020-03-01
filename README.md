@@ -67,7 +67,7 @@ The Centronics port is well suited as a universal interface for connecting home-
 
 8520A CIA-A  | (Complex Interface Adapter, ODD CIA at U7)
 ------------ | -------------
-/IRQ         | /INT2 input from Paula
+/IRQ         | /INT2 input from Paula, Low Priority Interrrupt Request
 /RES         | System reset line
 D0-D7        | Processor data bus bits 0-7
 A0-A3        | Processor address bus bits 8-11
@@ -91,7 +91,7 @@ CNT          | KCLK    Clock for keyboard data
 
 8520A CIA-B  | (Complex Interface Adapter, EVEN CIA at U8)
 ------------ | -------------
-/IRQ         | /INT6 input from Paula
+/IRQ         | /INT6 input from Paula, High Priority Interrupt Request
 /RES         | System reset line
 D0-D7        | Processor data bus bits 8-15
 A0-A3        | Processor address bus bits 8-11
@@ -151,7 +151,7 @@ The E clock on the 68000 is connected to the ⌀2 input of the 8250. The 16 inte
     10 $BFEA01 : 1011 1111 1110 1010 0000 0001   $BFDA00 : 1011 1111 1101 1010 0000 0000   E. MSB  Event counter bits 16-23
     11 $BFEB01 : 1011 1111 1110 1011 0000 0001   $BFDB00 : 1011 1111 1101 1011 0000 0000   -       Unused
     12 $BFEC01 : 1011 1111 1110 1100 0000 0001   $BFDC00 : 1011 1111 1101 1100 0000 0000   SP      Serial port register
-    13 $BFED01 : 1011 1111 1110 1101 0000 0001   $BFDD00 : 1011 1111 1101 1101 0000 0000   IRC     Interrupt control register
+    13 $BFED01 : 1011 1111 1110 1101 0000 0001   $BFDD00 : 1011 1111 1101 1101 0000 0000   ICR     Interrupt control register
     14 $BFEE01 : 1011 1111 1110 1110 0000 0001   $BFDE00 : 1011 1111 1101 1110 0000 0000   CRA     Control register A
     15 $BFEF01 : 1011 1111 1110 1111 0000 0001   $BFDF00 : 1011 1111 1101 1111 0000 0000   CRB     Control register B
 
@@ -175,7 +175,7 @@ In general, writing to the data registers always stores the value in it, while r
 
 To simplify the data transfer through the parallel ports, the 8250 has two handshake lines, PC and FLAG.
 
-The PC output goes low for one clock period on each access to the data register B (PB, reg 1). The FLAG input responds to such downward transitions. Every time the state of the FLAG line changes from 1 to 0, the FLAG bit is set in the interrupt controller register (IRC, reg. $D). These two lines allow a simple handshaking in which the FLAG and PC lines of two CIA's are cross-connected.
+The PC output goes low for one clock period on each access to the data register B (PB, reg 1). The FLAG input responds to such downward transitions. Every time the state of the FLAG line changes from 1 to 0, the FLAG bit is set in the interrupt controller register (ICR, reg. $D). These two lines allow a simple handshaking in which the FLAG and PC lines of two CIA's are cross-connected.
 
 The sender need only write its data to the port register and then wait for a FLAG signal before sending each additional byte. Since FLAG can generate an interrupt, the sender can even perform other tasks while it is waiting. The same applies to the receiver, except that it reads the data from the port instead of writing it.
 
