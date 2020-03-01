@@ -157,13 +157,16 @@ The E clock on the 68000 is connected to the ⌀2 input of the 8250. The 16 inte
 
 ***
 
-The 8250 has the following features: two programmable 8-bit parallel ports (PA and PB), two 16-bit timers (A and B), a bidirectional serial port (SP) and a 24-bit counter (event counter) with an alarm function upon reaching a programmed value. All of the functions can generate interrupts.
+### The parallel ports
 
-The function of the 8250 are organixed in 16 registers. To the processor they look like ordinary memory locations, since all peripheral components in a 68000 system are memory mapped. The registers of a chip are accessed like memory locations.
+    Reg.  Name  D7    D6    D5    D4    D3    D2    D1    D0
+    ---------------------------------------------------------
+    0     PA    PA7   PA6   PA5   PA4   PA3   PA2   PA1   PA0
+    1     PB    PB7   PB6   PB5   PB4   PB3   PB2   PB1   PB0
+    2     DDRA  DPA7  DPA6  DPA5  DPA4  DPA3  DPA2  DPA1  DPA0
+    3     DDRB  DPB7  DPB6  DPB5  DPB4  DPB3  DPB2  DPB1  DPB0
 
-The E clock on the 68000 is connected to the ⌀2 input of the 8250. The 16 internal registers are selected with the four address inputs A0-A3. Here is a explanation of the 16 registers (actually only 15 registers, since register 11 is unsused):
 
-***
 
 The simplest way to program this interface is directly through the hardware registers. This has the disadvantage that problems can occur with multitasking if another program wants to access this interface, thus it is better to access it through Amiga DOS. The data format is then predefined but you lose the ability to program individual bits as inputs and outputs, however.
 
