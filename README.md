@@ -167,6 +167,19 @@ The E clock on the 68000 is connected to the ⌀2 input of the 8250. The 16 inte
     3     DDRB  DPB7  DPB6  DPB5  DPB4  DPB3  DPB2  DPB1  DPB0
 
 
+The 8250 has two 8-bit parallel ports, PA and PB, each of which is assigned a data register. The chip has 16 port lines, PA0-PA7 and PB0-PB7. Each port line can be used as either an input or an output. The input or output of a port line is called the data direction. The 8250 allows the data direction of each line to be controlled individually. Each port has data direction registers, DDRA and DDRB. 
+
+If a bit in the data direction register is 0, the corresponding line is an input. The state of the port lines can be determined by reading the appropriate bits of the data direction register. If a bit in DDR is set to 1, then the corresponding port line becomes an output.
+
+In general, writing to the data registers always stores the value in it, while reading always returns the state of the port lines. The bits in the data registers is placed in the port lines. Therefore when reading the port which is configured as an output, the contents of the data register is returned, while when writing to an input the value is stored in the data register, but doesn't appear on the port lines until the port is configured as output.
+
+To simplify the data transfer through the parallel ports, the 8250 has two handshake lines, PC and FLAG.
+
+The PC output goes low for one clock period on each access to the data register B (PB, reg 1). The FLAG input responds to such downward transitions. Every time the state of the FLAG line changes from 1 to 0, the FLAG bit is set in the interrupt controller register (IRC, reg. $D). These two lines allow a simple handshaking in which the FLAG and PC lines of two CIA's are cross-connected.
+
+The sender need only write its data to the port register and then wait for a FLAG signal before sending each additional byte. Since FLAG can generate an interrupt, the sender can even perform other tasks while it is waiting. The same applies to the receiver, except that it reads the data from the port instead of writing it.
+
+***
 
 The simplest way to program this interface is directly through the hardware registers. This has the disadvantage that problems can occur with multitasking if another program wants to access this interface, thus it is better to access it through Amiga DOS. The data format is then predefined but you lose the ability to program individual bits as inputs and outputs, however.
 
