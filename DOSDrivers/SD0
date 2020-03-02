@@ -1,0 +1,16 @@
+FileSystem     = l:fat95
+Device         = sdbox.device
+Unit           = 0
+Flags          = 0
+LowCyl         = 0
+HighCyl        = 0
+Surfaces       = 1
+BlocksPerTrack = 1
+BlockSize      = 512
+Buffers        = 20
+BufMemType     = 1
+BootPri        = 0
+Stacksize      = 4096
+Priority       = 5
+GlobVec        = -1
+DosType        = 0x46415401
