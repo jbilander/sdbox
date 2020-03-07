@@ -57,7 +57,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
  
 ***
 
-The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is read for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
+The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is ready for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
 
 The printer uses the BUSY line to indicate that it is occupied and can not accept any more data at the moment. This occurs when the printer buffer is full, for example. The computer then waits until BUSY goes high again before it continues sending data. With the Paper Out line the printer tells the computer that it is out of paper. The select line is also controlled by the printer and indicates whether it is ONLINE (selected, SEL high) or OFFLINE (unselected, SEL low).
 
@@ -71,7 +71,7 @@ The Centronics port is well suited as a universal interface for connecting home-
 /RES         | System reset line
 D0-D7        | Processor data bus bits 0-7
 A0-A3        | Processor address bus bits 8-11
-f2           | Processor E clock
+φ2           | Processor E clock
 R/W          | Processor R/W
 PA7          | Game port 1 pin 6 (fire button)
 PA6          | Game port 0 pin 6 (fire button)
@@ -95,7 +95,7 @@ CNT          | KCLK    Clock for keyboard data
 /RES         | System reset line
 D0-D7        | Processor data bus bits 8-15
 A0-A3        | Processor address bus bits 8-11
-f2           | Processor E clock
+φ2           | Processor E clock
 R/W          | Processor R/W
 PA7          | /DTR serial interface, /DTR signal
 PA6          | /RTS serial interface, /RTS signal
