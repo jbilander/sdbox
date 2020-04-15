@@ -202,16 +202,19 @@ Here we'll just look at using the entire port as input or output. There is also 
     
     Bit                    Name                  Meaning, if set
     --------------------------------------------------------------------------------
-    0                      PSEL                  Printer selected
+    0                      PBUSY                 Printer busy
     1                      PAPEROUT              No more paper
-    2                      PBUSY                 Printer busy
-    3                      RWDIR                 Data diretion (0 = read, 1 = write)
+    2                      PSEL                  Printer selected
+    3                      RWDIR                 Data direction (0 = read, 1 = write)
     
     The following bits represent the parallel flags:
     
     Bit                    Name                  Meaning, if set
     --------------------------------------------------------------------------------
     1                      EOFMODE               EOF mode enabled
-    5                      SHARED                Access possible for other tasks
+    2                      ACKMODE               Set this bit if you want to use ACK handshaking.
+    3                      FASTMODE              High-speed mode. Will send out data as long as the BUSY signal is low.
+    4                      SLOWMODE              Slow-speed mode for transfers to very slow printers.      
+    5                      SHARED                Access possible for other tasks. Don't use with FASTMODE
     
 If you want to read from the parallel port, the question arises as to how the receiver is to recognize the end of the transfer. It is possible to use a given byte sequence to stop the reception. This sequence is stored in the two long words of `TermArray`. This termination sequence is activated if bit 1 of the flag byte is set `(EOFMODE)` and the `SETPARAMS` command `(10)` is then called.
