@@ -57,6 +57,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
  
 ***
 Datasheet: http://archive.6502.org/datasheets/mos_6526_cia_recreated.pdf
+* 8520 is functionally equivalent to the 6526 except for the simplified TOD circuitry. 
 ***
 
 The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is ready for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
