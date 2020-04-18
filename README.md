@@ -56,6 +56,8 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
                13           Select          B        4      PA2
  
 ***
+Datasheet: http://archive.6502.org/datasheets/mos_6526_cia_recreated.pdf
+***
 
 The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is ready for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
 
@@ -218,3 +220,13 @@ Here we'll just look at using the entire port as input or output. There is also 
     5                      SHARED                Access possible for other tasks. Don't use with FASTMODE
     
 If you want to read from the parallel port, the question arises as to how the receiver is to recognize the end of the transfer. It is possible to use a given byte sequence to stop the reception. This sequence is stored in the two long words of `TermArray`. This termination sequence is activated if bit 1 of the flag byte is set `(EOFMODE)` and the `SETPARAMS` command `(10)` is then called.
+
+Please Note:
+
+* Strobe functions as input data accepted from Amiga in input mode (similar to ACK* in output mode).
+* Ack functions as input-data-ready from parallel device in input mode (similar to Strobe* in output mode).
+
+http://www.theflatnet.de/pub/cbm/amiga/AmigaDevDocs/hard_e.html#e-2-1
+
+***
+
