@@ -39,7 +39,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
 ***
 
     Centronics Pin No.     Function        CIA     Pin  Pin designation
-                1           Strobe          A       18      PC
+                1           Strobe          A       18      /PC
                 2           Data bit 0      A       10      PB0
                 3           Data bit 1      A       11      PB1
                 4           Data bit 2      A       12      PB2
@@ -48,7 +48,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
                 7           Data bit 5      A       15      PB5
                 8           Data bit 6      A       16      PB6
                 9           Data bit 7      A       17      PB7
-               10           Acknowledge     A       24      PB8
+               10           Acknowledge     A       24      /FLAG
                11           Busy            B        2      PA0
                                                 and 39      SP
                12           Paper Out       B        3      PA1
