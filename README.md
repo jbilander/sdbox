@@ -1,7 +1,10 @@
 # sdbox
 ### A parallel to sd-card project for the Amiga
 
-Work-In-Progress...
+THIS PROJECT HAS NOW BEEN MOVED TO HERE:
+https://github.com/niklasekstrom/amiga-par-to-spi-adapter
+
+I'll keep the information below regarding how the parallel port works on the Amiga, Happy Hackin'
 
 The parallel port (centronics interface) pinout for A1000, A500/A2000 and PC. On the Amiga 1000 some lines are used differently and the connector is of db25 female type.
 
