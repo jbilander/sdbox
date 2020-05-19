@@ -2,7 +2,7 @@
 ### A parallel to sd-card project for the Amiga
 
 THIS PROJECT HAS NOW BEEN MOVED TO HERE:
-https://github.com/niklasekstrom/amiga-par-to-spi-adapter
+https://github.com/jbilander/amiga-par-to-spi-adapter/
 
 I'll keep the information below regarding how the parallel port works on the Amiga, Happy Hackin'
 
