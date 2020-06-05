@@ -1,7 +1,10 @@
 # sdbox
 ### A parallel to sd-card project for the Amiga
 
-Work-In-Progress...
+THIS PROJECT HAS NOW BEEN MOVED TO HERE:
+https://github.com/jbilander/amiga-par-to-spi-adapter/
+
+I'll keep the information below regarding how the parallel port works on the Amiga, Happy Hackin'
 
 The parallel port (centronics interface) pinout for A1000, A500/A2000 and PC. On the Amiga 1000 some lines are used differently and the connector is of db25 female type.
 
@@ -39,7 +42,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
 ***
 
     Centronics Pin No.     Function        CIA     Pin  Pin designation
-                1           Strobe          A       18      PC
+                1           Strobe          A       18      /PC
                 2           Data bit 0      A       10      PB0
                 3           Data bit 1      A       11      PB1
                 4           Data bit 2      A       12      PB2
@@ -48,7 +51,7 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
                 7           Data bit 5      A       15      PB5
                 8           Data bit 6      A       16      PB6
                 9           Data bit 7      A       17      PB7
-               10           Acknowledge     A       24      PB8
+               10           Acknowledge     A       24      /FLAG
                11           Busy            B        2      PA0
                                                 and 39      SP
                12           Paper Out       B        3      PA1
@@ -56,8 +59,11 @@ Internally all the Centronics port lines (except for +5V and Reset) are connecte
                13           Select          B        4      PA2
  
 ***
+Datasheet: http://archive.6502.org/datasheets/mos_6526_cia_recreated.pdf
+* 8520 is functionally equivalent to the 6526 except for the simplified TOD circuitry. 
+***
 
-The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is read for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
+The Centronics interface is a parallel interface. The data byte lies on the eight data lines. When the computer has placed a valid byte on the data lines it clears the STROBE line to 0 for 1.4 microseconds, signalling the printer that a valid byte is ready for it. The printer must then acknowledge this by pulling the Ack line low for at least one microsecond. The computer then place the next byte on the bus.
 
 The printer uses the BUSY line to indicate that it is occupied and can not accept any more data at the moment. This occurs when the printer buffer is full, for example. The computer then waits until BUSY goes high again before it continues sending data. With the Paper Out line the printer tells the computer that it is out of paper. The select line is also controlled by the printer and indicates whether it is ONLINE (selected, SEL high) or OFFLINE (unselected, SEL low).
 
@@ -71,7 +77,7 @@ The Centronics port is well suited as a universal interface for connecting home-
 /RES         | System reset line
 D0-D7        | Processor data bus bits 0-7
 A0-A3        | Processor address bus bits 8-11
-f2           | Processor E clock
+φ2           | Processor E clock
 R/W          | Processor R/W
 PA7          | Game port 1 pin 6 (fire button)
 PA6          | Game port 0 pin 6 (fire button)
@@ -95,7 +101,7 @@ CNT          | KCLK    Clock for keyboard data
 /RES         | System reset line
 D0-D7        | Processor data bus bits 8-15
 A0-A3        | Processor address bus bits 8-11
-f2           | Processor E clock
+φ2           | Processor E clock
 R/W          | Processor R/W
 PA7          | /DTR serial interface, /DTR signal
 PA6          | /RTS serial interface, /RTS signal
@@ -202,16 +208,29 @@ Here we'll just look at using the entire port as input or output. There is also 
     
     Bit                    Name                  Meaning, if set
     --------------------------------------------------------------------------------
-    0                      PSEL                  Printer selected
+    0                      PBUSY                 Printer busy
     1                      PAPEROUT              No more paper
-    2                      PBUSY                 Printer busy
-    3                      RWDIR                 Data diretion (0 = read, 1 = write)
+    2                      PSEL                  Printer selected
+    3                      RWDIR                 Data direction (0 = read, 1 = write)
     
     The following bits represent the parallel flags:
     
     Bit                    Name                  Meaning, if set
     --------------------------------------------------------------------------------
     1                      EOFMODE               EOF mode enabled
-    5                      SHARED                Access possible for other tasks
+    2                      ACKMODE               Set this bit if you want to use ACK handshaking.
+    3                      FASTMODE              High-speed mode. Will send out data as long as the BUSY signal is low.
+    4                      SLOWMODE              Slow-speed mode for transfers to very slow printers.      
+    5                      SHARED                Access possible for other tasks. Don't use with FASTMODE
     
 If you want to read from the parallel port, the question arises as to how the receiver is to recognize the end of the transfer. It is possible to use a given byte sequence to stop the reception. This sequence is stored in the two long words of `TermArray`. This termination sequence is activated if bit 1 of the flag byte is set `(EOFMODE)` and the `SETPARAMS` command `(10)` is then called.
+
+Please Note:
+
+* Strobe functions as input data accepted from Amiga in input mode (similar to ACK* in output mode).
+* Ack functions as input-data-ready from parallel device in input mode (similar to Strobe* in output mode).
+
+http://www.theflatnet.de/pub/cbm/amiga/AmigaDevDocs/hard_e.html#e-2-1
+
+***
+
