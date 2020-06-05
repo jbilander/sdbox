@@ -1,6 +1,8 @@
 # sdbox
 ### A parallel to sd-card project for the Amiga
 
+This code is uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. It is a collborative work by us, Enjoy!
+
 MORE TO COME HERE....
 
 
