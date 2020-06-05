@@ -1,5 +1,5 @@
 FileSystem     = l:fat95
-Device         = sdbox.device
+Device         = spisd.device
 Unit           = 0
 Flags          = 0
 LowCyl         = 0
