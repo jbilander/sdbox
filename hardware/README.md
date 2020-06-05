@@ -2,20 +2,20 @@
 
 This is a PCB made in KiCad (5.1.2-1) for hooking up an Arduino Nano V3 with a micro-sd-card module to the Amiga parallel-port.
 
-<a href="../../images/sdbox_rev_1a_pic1.png">
-<img src="../../images/sdbox_rev_1a_pic1.png" width="260" height="270">
+<a href="../images/sdbox_rev_1a_pic1.png">
+<img src="../images/sdbox_rev_1a_pic1.png" width="260" height="270">
 </a>
-<a href="../../images/sdbox_rev_1a_pic2.png">
-<img src="../../images/sdbox_rev_1a_pic2.png" width="240" height="260">
+<a href="../images/sdbox_rev_1a_pic2.png">
+<img src="../images/sdbox_rev_1a_pic2.png" width="240" height="260">
 </a>
-<a href="../../images/sdbox_rev_1a_pic3.png">
-<img src="../../images/sdbox_rev_1a_pic3.png" width="280" height="280">
+<a href="../images/sdbox_rev_1a_pic3.png">
+<img src="../images/sdbox_rev_1a_pic3.png" width="280" height="280">
 </a>
-<a href="../../images/sdbox_rev_1a_pic4.png">
-<img src="../../images/sdbox_rev_1a_pic4.png" width="245" height="300">
+<a href="../images/sdbox_rev_1a_pic4.png">
+<img src="../images/sdbox_rev_1a_pic4.png" width="245" height="300">
 </a>
-<a href="../../images/sdbox_schematics_rev_1a.png">
-<img src="../../images/sdbox_schematics_rev_1a.png" width="480" height="272">
+<a href="../images/sdbox_schematics_rev_1a.png">
+<img src="../images/sdbox_schematics_rev_1a.png" width="480" height="272">
 </a>
 
 ***
@@ -47,15 +47,15 @@ JP2   |Solder jumper| Enable this to use barrel jack connector without U3 chip
 
 ***
 
-<a href="../../images/arduino_nano_v3.jpg">
-<img src="../../images/arduino_nano_v3.jpg" width="250" height="250">
+<a href="../images/arduino_nano_v3.jpg">
+<img src="../images/arduino_nano_v3.jpg" width="250" height="250">
 </a>
-<a href="../../images/micro_sd_card_module.jpg">
-<img src="../../images/micro_sd_card_module.jpg" width="220" height="220">
+<a href="../images/micro_sd_card_module.jpg">
+<img src="../images/micro_sd_card_module.jpg" width="220" height="220">
 </a>
-<a href="../../images/d-sub_db25_male_plug_solder_connector.jpg">
-<img src="../../images/d-sub_db25_male_plug_solder_connector.jpg" width="200" height="200">
+<a href="../images/d-sub_db25_male_plug_solder_connector.jpg">
+<img src="../images/d-sub_db25_male_plug_solder_connector.jpg" width="200" height="200">
 </a>
-<a href="../../images/barrel_jack_connector.jpg">
-<img src="../../images/barrel_jack_connector.jpg" width="240" height="240">
+<a href="../images/barrel_jack_connector.jpg">
+<img src="../images/barrel_jack_connector.jpg" width="240" height="240">
 </a>
