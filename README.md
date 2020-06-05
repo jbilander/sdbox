@@ -3,17 +3,21 @@
 
 This code is uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. It is a collborative work by us, Enjoy!
 
-MORE TO COME HERE....
+What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 need a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capability should suffice.
 
+<br />
+MORE TO COME HERE....
+<br />
 
 I'll keep the information below regarding how the parallel port works on the Amiga, Happy Hackin'
 
 
-
-
-
-
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 
 The parallel port (centronics interface) pinout for A1000, A500/A2000 and PC. On the Amiga 1000 some lines are used differently and the connector is of db25 female type.
