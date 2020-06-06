@@ -1,7 +1,8 @@
-# sdbox
+# sdbox for Amiga
+***
 ### A parallel to sd-card project for the Amiga
 
-This code uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. Design of the 3d-printable sdbox case is made by me and Tobias Niva (niva3d, http://www.niva3d.com/). It is a collborative work by us three, Enjoy!
+This code uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. Design of the 3d-printable sdbox case is made by me and Tobias Niva (niva3d, http://www.niva3d.com/). It is a collaborative work done by us three, Enjoy!
 
 ***
 
