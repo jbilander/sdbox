@@ -1,9 +1,47 @@
 # sdbox
 ### A parallel to sd-card project for the Amiga
 
-This code uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. It is a collborative work by us, Enjoy!
+This code uses the code from the amiga-par-to-spi-adapter https://github.com/niklasekstrom/amiga-par-to-spi-adapter written by Niklas Ekström. KiCad design, Schematics and files for DesignSpark Mechanical v4 is made by me. Design of the 3d-printable sdbox case is made by me and Tobias Niva (niva3d, http://www.niva3d.com/). It is a collborative work by us three, Enjoy!
 
-What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 need a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capability should suffice.
+***
+
+<a href="images/sdbox_rev_1a_pic1.png">
+<img src="images/sdbox_rev_1a_pic1.png" width="260" height="270">
+</a>
+<a href="images/pcb_pic1.jpg">
+<img src="images/pcb_pic1.jpg" width="260" height="195">
+</a>
+<a href="images/sd_box_pic1.jpg">
+<img src="images/sd_box_pic1.jpg" width="260" height="195">
+</a>
+
+***
+
+What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 need a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
+
+***
+
+<a href="images/sd_box_pic2.jpg">
+<img src="images/sd_box_pic2.jpg" width="260" height="195">
+</a>
+<a href="images/sd_box_pic3.jpg">
+<img src="images/sd_box_pic3.jpg" width="260" height="195">
+</a>
+<a href="images/sd_box_pic4.jpg">
+<img src="images/sd_box_pic4.jpg" width="260" height="195">
+</a>
+
+***
+
+
+<a href="images/sdbox_3d_model_pic1.jpg">
+<img src="images/sdbox_3d_model_pic1.jpg" width="260" height="229">
+</a>
+<a href="images/vFinal-4view.png">
+<img src="images/vFinal-4view.png" width="500" height="400">
+
+
+***
 
 <br />
 <br />
