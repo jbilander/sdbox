@@ -56,6 +56,102 @@ https://i.imgur.com/ADebdlJ.mp4
 </a>
 
 ***
+### Howto build the sdbox
+
+Start with removing the angled pins from the MicroSD Card Adapter and replace with straight pins like on the pictures below:
+
+<a href="images/build/sdbox_build_pic1.jpg">
+<img src="images/build/sdbox_build_pic1.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic2.jpg">
+<img src="images/build/sdbox_build_pic2.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic3.jpg">
+<img src="images/build/sdbox_build_pic3.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic4.jpg">
+<img src="images/build/sdbox_build_pic4.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic5.jpg">
+<img src="images/build/sdbox_build_pic5.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic6.jpg">
+<img src="images/build/sdbox_build_pic6.jpg" width="252" height="189">
+</a>
+
+***
+
+Now we start soldering on the surface mount parts, the passives, also know as the bird seed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built in magnifier glas, it works well, I do not have a scope. Use a fine tip with your solder iron...
+
+***
+
+<a href="images/build/sdbox_build_pic7.jpg">
+<img src="images/build/sdbox_build_pic7.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic8.jpg">
+<img src="images/build/sdbox_build_pic8.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic10.jpg">
+<img src="images/build/sdbox_build_pic10.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic9.jpg">
+<img src="images/build/sdbox_build_pic9.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic11.jpg">
+<img src="images/build/sdbox_build_pic11.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic12.jpg">
+<img src="images/build/sdbox_build_pic12.jpg" width="252" height="189">
+</a>
+
+***
+
+Now with the surface mount stuff done we do the through-hole stuff, solder on two cut-down pins as support legs for the MicroSD Card Adapter, the Adapter will rest on these and make it be leveled correctly.
+
+***
+
+<a href="images/build/sdbox_build_pic13.jpg">
+<img src="images/build/sdbox_build_pic13.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic14.jpg">
+<img src="images/build/sdbox_build_pic14.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic15.jpg">
+<img src="images/build/sdbox_build_pic15.jpg" width="252" height="189">
+</a>
+
+***
+
+Now, with this type of connector the metal plate comes loose when you unscrew the connector nuts. We need to remove them because we don't want to remove them on the Amiga side. Use some super glue and a vice or similar to press them together a couple of minutes until the glue bites. Be quick if you use super glue! Then put the screws back while soldering, we want the metal pieces to support the connector when plugging the device in and out of the Amiga.
+
+***
+<a href="images/build/sdbox_build_pic16.jpg">
+<img src="images/build/sdbox_build_pic16.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic17.jpg">
+<img src="images/build/sdbox_build_pic17.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic18.jpg">
+<img src="images/build/sdbox_build_pic18.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic19.jpg">
+<img src="images/build/sdbox_build_pic19.jpg" width="252" height="189">
+</a>
+
+***
+
+Now solder the MicroSD Card Adapter and the Nano down to the PCB as well.
+
+***
+
+<a href="images/build/sdbox_build_pic20.jpg">
+<img src="images/build/sdbox_build_pic20.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic21.jpg">
+<img src="images/build/sdbox_build_pic21.jpg" width="252" height="189">
+</a>
+
+***
 
 <br />
 <br />
