@@ -1,0 +1,11 @@
+#
+# Material file
+# Created by SpaceClaim
+#
+
+newmtl c_0
+Kd 0.5607843 0.6862745 0.5607843
+Ks 0.8 0.8 0.8
+Ka 0.2 0.2 0.2
+illum 2
+Ns 40
