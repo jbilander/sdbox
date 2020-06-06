@@ -100,9 +100,6 @@ Now we start soldering on the surface mount parts, the passives, also know as th
 <a href="images/build/sdbox_build_pic11.jpg">
 <img src="images/build/sdbox_build_pic11.jpg" width="189" height="252">
 </a>
-<a href="images/build/sdbox_build_pic12.jpg">
-<img src="images/build/sdbox_build_pic12.jpg" width="252" height="189">
-</a>
 
 ***
 
@@ -110,6 +107,9 @@ Now with the surface mount stuff done we do the through-hole stuff, solder on tw
 
 ***
 
+<a href="images/build/sdbox_build_pic12.jpg">
+<img src="images/build/sdbox_build_pic12.jpg" width="252" height="189">
+</a>
 <a href="images/build/sdbox_build_pic13.jpg">
 <img src="images/build/sdbox_build_pic13.jpg" width="252" height="189">
 </a>
@@ -149,6 +149,25 @@ Now solder the MicroSD Card Adapter and the Nano down to the PCB as well.
 </a>
 <a href="images/build/sdbox_build_pic21.jpg">
 <img src="images/build/sdbox_build_pic21.jpg" width="252" height="189">
+</a>
+
+***
+
+Almost done!, time to put the LEDs on. To get the correct length for the LEDs used in the sdbox 3d-printable case I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down with the iron while holding the LEDs in place.
+
+***
+
+<a href="images/build/sdbox_build_pic22.jpg">
+<img src="images/build/sdbox_build_pic22.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic23.jpg">
+<img src="images/build/sdbox_build_pic23.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic24.jpg">
+<img src="images/build/sdbox_build_pic24.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic25.jpg">
+<img src="images/build/sdbox_build_pic25.jpg" width="189" height="252">
 </a>
 
 ***
