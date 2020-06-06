@@ -1,5 +1,7 @@
 build-device
 build-device-debug
+Thumbs.db
+.DS_Store
 
 # Prerequisites
 *.d
