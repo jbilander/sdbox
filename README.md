@@ -52,7 +52,7 @@ https://i.imgur.com/ADebdlJ.mp4
 <img src="images/sdbox_3d_model_pic1.jpg" width="260" height="229">
 </a>
 <a href="images/vFinal-4view.png">
-<img src="images/vFinal-4view.png" width="500" height="400">
+<img src="images/vFinal-4view.png" width="384" height="308">
 </a>
 
 ***
