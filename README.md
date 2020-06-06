@@ -18,7 +18,9 @@ This code uses the code from the amiga-par-to-spi-adapter https://github.com/nik
 
 ***
 
-What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
+What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap MicroSd Card Adapter that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
+
+The schematics and kicad drawings can be found in the hardware folder
 
 ***
 Ok enough talk!, show us some videos:
@@ -81,7 +83,7 @@ Start with removing the angled pins from the MicroSD Card Adapter and replace wi
 
 ***
 
-Now we start soldering on the surface mount parts, the passives, also know as the bird seed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built in magnifier glas, it works well, I do not have a scope. Use a fine tip with your solder iron...
+Now we start soldering on the surface mount parts, the passives, also known as the bird seed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built-in magnifier glas, it works well, I do not have a scope. Use a fine tip with your solder iron...
 
 ***
 
@@ -103,7 +105,7 @@ Now we start soldering on the surface mount parts, the passives, also know as th
 
 ***
 
-Now with the surface mount stuff done we do the through-hole stuff, solder on two cut-down pins as support legs for the MicroSD Card Adapter, the Adapter will rest on these and make it be leveled correctly.
+Now with the surface mount stuff done we do the through-hole stuff, solder on two cut-down pins as leg support for the MicroSD Card Adapter, the adapter will rest on these and make it in level and the same height as the Nano.
 
 ***
 
@@ -122,7 +124,7 @@ Now with the surface mount stuff done we do the through-hole stuff, solder on tw
 
 ***
 
-Now, with this type of connector the metal plate comes loose when you unscrew the connector nuts. We need to remove them because we don't want to remove them on the Amiga side. Use some super glue and a vice or similar to press them together a couple of minutes until the glue bites. Be quick if you use super glue! Then put the screws back while soldering, we want the metal pieces to support the connector when plugging the device in and out of the Amiga.
+Now, with this type of connector the metal plate comes loose when you unscrew the connector nuts. We need to remove them because we don't want to remove them on the Amiga side. Use some super glue and a vice or similar to press them together a couple of minutes until the glue bites. Be quick if you use super glue! Then put the screws back while soldering, we want the metal pieces in there as a support taking some force off the pins when plugging the device in and out of the Amiga.
 
 ***
 <a href="images/build/sdbox_build_pic16.jpg">
@@ -153,7 +155,7 @@ Now solder the MicroSD Card Adapter and the Nano down to the PCB as well.
 
 ***
 
-Almost done!, time to put the LEDs on. To get the correct length for the LEDs used in the sdbox 3d-printable case, I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down with the iron while holding the LEDs in place. Cut the legs of the legs so that you can remove the pcb from the case and solder and trim them afterwards. Job done!
+Almost done!, time to put the LEDs on. To get the correct LED height for the sdbox 3d-printable case, I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down, with the iron, while holding the LEDs in place pressing on the legs gently. Cut the legs like in the picture below so that you can remove the pcb from the case and solder and trim them better afterwards. Job done!
 
 ***
 
