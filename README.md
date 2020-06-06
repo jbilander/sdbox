@@ -18,7 +18,7 @@ This code uses the code from the amiga-par-to-spi-adapter https://github.com/nik
 
 ***
 
-What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 need a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
+What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap sd-card module that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a Male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
 
 ***
 Ok enough talk!, show us some videos:
@@ -153,7 +153,7 @@ Now solder the MicroSD Card Adapter and the Nano down to the PCB as well.
 
 ***
 
-Almost done!, time to put the LEDs on. To get the correct length for the LEDs used in the sdbox 3d-printable case I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down with the iron while holding the LEDs in place.
+Almost done!, time to put the LEDs on. To get the correct length for the LEDs used in the sdbox 3d-printable case, I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down with the iron while holding the LEDs in place. Cut the legs of the legs so that you can remove the pcb from the case and solder and trim them afterwards. Job done!
 
 ***
 
@@ -168,6 +168,12 @@ Almost done!, time to put the LEDs on. To get the correct length for the LEDs us
 </a>
 <a href="images/build/sdbox_build_pic25.jpg">
 <img src="images/build/sdbox_build_pic25.jpg" width="189" height="252">
+</a>
+<a href="images/build/sdbox_build_pic26.jpg">
+<img src="images/build/sdbox_build_pic26.jpg" width="252" height="189">
+</a>
+<a href="images/build/sdbox_build_pic27.jpg">
+<img src="images/build/sdbox_build_pic27.jpg" width="252" height="189">
 </a>
 
 ***
