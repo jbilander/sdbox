@@ -20,7 +20,7 @@
 #ifndef SD_H_
 #define SD_H_
 
-#include <stdint.h>
+//#include <stdint.h>
 
 #define SD_SECTOR_SIZE		512
 #define SD_SECTOR_SHIFT		9
@@ -104,8 +104,7 @@ typedef struct {
 
 typedef struct {
 	sd_card_type_t		type;
-	//uint64_t			capacity;
-	uint32_t		total_sectors;
+	uint64_t			capacity;
 	sd_blocksize_t		block_size;
 	sd_card_csd_t		csd;
 	sd_card_cid_t		cid;

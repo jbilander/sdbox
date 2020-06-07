@@ -1,10 +1,10 @@
 /*
- * Written in the end of April 2020 by Niklas Ekström.
+ * Amiga parallel to SPI adapter
+ * Written in the end of April 2020 by Niklas Ekström
  */
-#include <exec/types.h>
-#include <proto/exec.h>
 
-#include "spi.h"
+#include "common.h"
+#include "spi-par.h"
 
 #define	CIAB_PRTRSEL	2
 #define	CIAB_PRTRPOUT	1
@@ -18,15 +18,15 @@
 #define CLOCK_MASK	(1 << CLOCK_BIT)
 #define IDLE_MASK	(1 << IDLE_BIT)
 
-static volatile UBYTE *cia_a_prb = (volatile UBYTE *)0xbfe101;
-static volatile UBYTE *cia_a_ddrb = (volatile UBYTE *)0xbfe301;
+static volatile uint8_t *cia_a_prb = (volatile uint8_t *)0xbfe101;
+static volatile uint8_t *cia_a_ddrb = (volatile uint8_t *)0xbfe301;
 
-static volatile UBYTE *cia_b_pra = (volatile UBYTE *)0xbfd000;
-static volatile UBYTE *cia_b_ddra = (volatile UBYTE *)0xbfd200;
+static volatile uint8_t *cia_b_pra = (volatile uint8_t *)0xbfd000;
+static volatile uint8_t *cia_b_ddra = (volatile uint8_t *)0xbfd200;
 
-static long current_speed = SPI_SPEED_SLOW;
+static spi_speed_t current_speed = spiSpeed_Slow;
 
-void spi_initialize()
+void spi_init(void)
 {
 	// Should allocate the parallel port in a system friendly way?
 
@@ -37,18 +37,18 @@ void spi_initialize()
 	*cia_a_ddrb = 0;
 }
 
-void spi_shutdown()
+void spi_shutdown(void)
 {
 	*cia_b_ddra &= 0xf8;
 	*cia_a_ddrb = 0;
 }
 
-static void wait_until_idle()
+static void wait_until_idle(void)
 {
 	// This will block forever if the adapter is not present.
 	// TODO: Should eventually timeout and give up.
 
-	UBYTE ctrl = *cia_b_pra;
+	uint8_t ctrl = *cia_b_pra;
 	while (ctrl & IDLE_MASK)
 	{
 		ctrl ^= CLOCK_MASK;
@@ -57,12 +57,12 @@ static void wait_until_idle()
 	}
 }
 
-void spi_set_speed(long speed)
+void spi_set_speed(spi_speed_t speed)
 {
 	wait_until_idle();
 
 	*cia_a_ddrb = 0xff;
-	*cia_a_prb = speed == SPI_SPEED_FAST ? 0xc1 : 0xc0;
+	*cia_a_prb = speed == spiSpeed_Fast ? 0xc1 : 0xc0;
 	*cia_b_pra ^= CLOCK_MASK;
 	*cia_a_ddrb = 0;
 
@@ -81,20 +81,24 @@ void spi_deselect(void)
 
 // A slow SPI transfer takes 32 us (8 bits times 4us (250kHz)).
 // An E-cycle is 1.4 us.
-static void wait_40_us()
+static void wait_40_us(void)
 {
-	UBYTE tmp;
-	for (int i = 0; i < 32; i++)
+	int i;
+	uint8_t tmp;
+	for (i = 0; i < 32; i++)
 		tmp = *cia_b_pra;
 }
 
-static void spi_write_slow(__reg("a0") const UBYTE *buf, __reg("d0") ULONG size)
+static void spi_write_slow(const uint8_t *buf, unsigned int size)
 {
+	int i;
+	uint8_t ctrl;
+
 	wait_until_idle();
 
 	*cia_a_ddrb = 0xff;
 
-	UBYTE ctrl = *cia_b_pra;
+	ctrl = *cia_b_pra;
 
 	if (size <= 64) // WRITE1: 00xxxxxx
 	{
@@ -116,7 +120,7 @@ static void spi_write_slow(__reg("a0") const UBYTE *buf, __reg("d0") ULONG size)
 		*cia_b_pra = ctrl;
 	}
 
-	for (int i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		*cia_a_prb = *buf++;
 
@@ -129,13 +133,16 @@ static void spi_write_slow(__reg("a0") const UBYTE *buf, __reg("d0") ULONG size)
 	*cia_a_ddrb = 0;
 }
 
-static void spi_read_slow(__reg("a0") UBYTE *buf, __reg("d0") ULONG size)
+static void spi_read_slow(uint8_t *buf, unsigned int size)
 {
+	int i;
+	uint8_t ctrl;
+
 	wait_until_idle();
 
 	*cia_a_ddrb = 0xff;
 
-	UBYTE ctrl = *cia_b_pra;
+	ctrl = *cia_b_pra;
 
 	if (size <= 64) // READ1: 01xxxxxx
 	{
@@ -159,7 +166,7 @@ static void spi_read_slow(__reg("a0") UBYTE *buf, __reg("d0") ULONG size)
 
 	*cia_a_ddrb = 0;
 
-	for (int i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		wait_40_us();
 
@@ -173,20 +180,20 @@ static void spi_read_slow(__reg("a0") UBYTE *buf, __reg("d0") ULONG size)
 	*cia_b_pra = ctrl;
 }
 
-extern void spi_read_fast(__reg("a0") UBYTE *buf, __reg("d0") ULONG size);
-extern void spi_write_fast(__reg("a0") const UBYTE *buf, __reg("d0") ULONG size);
+extern void spi_read_fast(register uint8_t *buf __asm("a0"), register unsigned int size __asm("d0"));
+extern void spi_write_fast(register const uint8_t *buf __asm("a0"), register unsigned int size __asm("d0"));
 
-void spi_read(__reg("a0") UBYTE *buf, __reg("d0") ULONG size)
+void spi_read(uint8_t *buf, unsigned int size)
 {
-	if (current_speed == SPI_SPEED_FAST)
+	if (current_speed == spiSpeed_Fast)
 		spi_read_fast(buf, size);
 	else
 		spi_read_slow(buf, size);
 }
 
-void spi_write(__reg("a0") const UBYTE *buf, __reg("d0") ULONG size)
+void spi_write(const uint8_t *buf, unsigned int size)
 {
-	if (current_speed == SPI_SPEED_FAST)
+	if (current_speed == spiSpeed_Fast)
 		spi_write_fast(buf, size);
 	else
 		spi_write_slow(buf, size);

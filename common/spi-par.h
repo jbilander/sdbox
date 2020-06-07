@@ -2,6 +2,7 @@
  *  SPI NET ENC28J60 device driver for K1208/Amiga 1200
  *
  *  Copyright (C) 2018 Mike Stirling
+ *  Modified in 2020 by Niklas Ekström to work with parallel port to SPI adapter
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -17,30 +18,25 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <stdint.h>
+#ifndef SPI_H_
+#define SPI_H_
 
-//#include "common.h"
-#include "timer.h"
+//#include <stdint.h>
 
-static volatile uint8_t * const todl = (volatile uint8_t*)0xbfe801;
-static volatile uint8_t * const todm = (volatile uint8_t*)0xbfe901;
-static volatile uint8_t * const todh = (volatile uint8_t*)0xbfea01;
+typedef enum {
+	spiSpeed_Fast = 0,
+	spiSpeed_Slow,
+} spi_speed_t;
 
-uint32_t timer_get_tick_count(void)
-{
-	uint8_t l,m,h;
+void spi_init(void);
+void spi_shutdown(void);
+void spi_set_speed(spi_speed_t speed);
 
-	/* TOD registers latch on reading MSB, unlatch on reading LSB */
-	h = *todh;
-	m = *todm;
-	l = *todl;
-	return ((uint32_t)h << 16) | ((uint32_t)m << 8) | (uint32_t)l;
-}
+void spi_select(void);
+void spi_deselect(void);
+void spi_ext_int_enable(void);
+void spi_ext_int_disable(void);
+void spi_read(uint8_t *buf, unsigned int size);
+void spi_write(const uint8_t *buf, unsigned int size);
 
-void timer_delay(uint32_t ticks)
-{
-	uint32_t timeout = timer_get_tick_count() + ticks;
-	while ((int32_t)(timer_get_tick_count() - timeout) < 0) {
-
-	}
-}
+#endif

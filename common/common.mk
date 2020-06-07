@@ -3,7 +3,7 @@ CC=m68k-amigaos-gcc
 AS=m68k-amigaos-as
 VASM=vasm
 
-CFLAGS=-m68000 -s -O2 -Wall -fomit-frame-pointer -fbaserel #-noixemul
+CFLAGS=-m68000 -s -O2 -Wall -fomit-frame-pointer -noixemul -fbaserel 
 ASFLAGS=-m68000
 LDFLAGS=-Wl,-Map=$(DIR)/$(FILENAME).map
 
