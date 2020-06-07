@@ -18,9 +18,13 @@ This code uses the code from the amiga-par-to-spi-adapter https://github.com/nik
 
 ***
 
-What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap MicroSd Card Adapter that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
+What is the sdbox for Amiga? It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap MicroSD Card Adapter that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. 5V via USB or 7-12V via the barrel jack power connector that goes to the VIN of the Nano V3.
 
-The schematics and kicad drawings can be found in the hardware folder
+The schematics, BOM, kicad drawings and the 3d-printable case source and stl files can all be found in the hardware folder.
+
+PCBs can be order directly via link below or you can generate your own gerbers from the KiCad files and send them to your favorite boardhouse mfg.
+
+https://aisler.net/p/YVXJBQHM
 
 ***
 Ok enough talk!, show us some videos:
@@ -155,7 +159,7 @@ Now solder the MicroSD Card Adapter and the Nano down to the PCB as well.
 
 ***
 
-Almost done!, time to put the LEDs on. To get the correct LED height for the sdbox 3d-printable case, I used a leftover trial print from the bottom part and drilled a hole through it to give me access to tack the LEDs down, with the iron, while holding the LEDs in place pressing on the legs gently. Cut the legs like in the picture below so that you can remove the pcb from the case and solder and trim them better afterwards. Job done!
+Almost done!, time to put the LEDs in. To get the correct LED height for the sdbox 3d-printable case, I used a leftover trial print of the bottom part and drilled a hole through it to give me access to tack the LEDs down, with the iron, while holding the LEDs in place pressing on the legs gently. Cut the legs like in the picture below so that you can remove the pcb from the case and solder and trim them better afterwards. Job done!
 
 ***
 
@@ -184,7 +188,7 @@ Almost done!, time to put the LEDs on. To get the correct LED height for the sdb
 <br />
 MORE TO COME HERE....
 <br />
-
+<br />
 I'll keep the information below regarding how the parallel port works on the Amiga, Happy Hackin'
 
 
