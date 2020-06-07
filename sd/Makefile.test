@@ -1,0 +1,11 @@
+FILENAME=spisd-test
+DIR=build-test
+OBJECTS=spi.o sd.o timer.o test.o device.o
+
+SRCDIRS=. ../common
+INCDIRS=. ../common
+
+EXTRA_CFLAGS=-DDEBUG=3
+
+include ../common/common.mk
+

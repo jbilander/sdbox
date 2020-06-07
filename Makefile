@@ -1,11 +1,11 @@
-all:	spisd
+all:	sd
 
-clean:	spisd-clean
+clean:	sd-clean
 
-spisd:
-	make -C spisd
+sd:
+	make -C sd
 
-spisd-clean:
-	make -C spisd clean
+sd-clean:
+	make -C sd clean
 
-.PHONY: all clean spisd spisd-clean
+.PHONY: all clean sd sd-clean

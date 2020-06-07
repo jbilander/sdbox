@@ -17,18 +17,13 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <stdint.h>
+//#include <stdint.h>
 #include <string.h>
 
-//#include "common.h"
+#include "common.h"
 #include "spi.h"
 #include "sd.h"
 #include "timer.h"
-
-#define FUNCTION_TRACE
-#define INFO(...)
-#define ERROR(...)
-#define TRACE(...)
 
 #define SLOW_CLOCK			400000
 #define FAST_CLOCK			3000000
@@ -94,14 +89,12 @@ static int sd_parse_csd(sd_card_info_t *ci, const uint32_t *bits)
 		csd->max_write_current_vdd_max = (bits[2] >> 18) & 0x7;
 		csd->device_size_mult = (bits[2] >> 15) & 0x7;
 
-		//ci->capacity = (uint64_t)(csd->device_size + 1) << (csd->device_size_mult + csd->read_block_len + 2);
-		ci->total_sectors = (uint32_t)(csd->device_size + 1) << (csd->device_size_mult + 2);
+		ci->capacity = (uint64_t)(csd->device_size + 1) << (csd->device_size_mult + csd->read_block_len + 2);
 	} else if (ci->type == sdCardType_SDHC) {
 		csd->device_size = (bits[1] << 16) & 0x3f;
 		csd->device_size |= (bits[2] >> 16) & 0xffff;
 
-		//ci->capacity = (uint64_t)(csd->device_size + 1) << 19;
-		ci->total_sectors = (uint32_t)(csd->device_size + 1) << (19 - csd->read_block_len);
+		ci->capacity = (uint64_t)(csd->device_size + 1) << 19;
 	} else {
 		ERROR("Card type not supported for CSD decode\n");
 		return sdError_Unsupported;
@@ -329,10 +322,9 @@ int sd_open(void)
 
 	FUNCTION_TRACE;
 
-	spi_set_speed(SPI_SPEED_SLOW);
+	spi_set_speed(spiSpeed_Slow);
 	ci->type = sdCardType_None;
-	//ci->capacity = 0;
-	ci->total_sectors = 0;
+	ci->capacity = 0;
 	ci->block_size = sdBlockSize_512;
 
 	/* Send dummy clocks with CS high (doing this sends 96 clocks) */
@@ -436,7 +428,7 @@ int sd_open(void)
 		}
 
 		/* Switch to fast clock */
-		spi_set_speed(SPI_SPEED_FAST);
+		spi_set_speed(spiSpeed_Fast);
 	} else {
 		/* Card not present */
 		err = sdError_NoCard;

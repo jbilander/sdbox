@@ -20,7 +20,7 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-#include <stdint.h>
+//#include <stdint.h>
 
 #ifndef TIMER_TICK_FREQ
 /*! Tick frequency in Hz - defines timer resolution */
