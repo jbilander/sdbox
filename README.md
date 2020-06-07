@@ -67,9 +67,9 @@ https://i.imgur.com/ADebdlJ.mp4
 
 ### Caveats
 
-One little caveat to keep in mind is that we do no CRC-checking of data being copied so please verify your files afterwards if you are going to copy important files over this way like taking a backup or something. Another caveat is that not all sd-cards might work with the sdbox so aim for a cheap 4/8 GB card and format it with a smaller partition `below 4GB` with FAT is a good starting point. If you see an error message saying `"bad number"` when trying to mount `SD0` it may be an indication that that particular card simply doesn't work with the sdbox for some reason.
+One little caveat to keep in mind is that we do no CRC-checking of data being copied so please verify your files afterwards if you are going to copy important files over this way like taking a backup or something. Another caveat is that not all sd-cards might work with the sdbox so aim for a cheap 4/8 GB card and format it with a smaller partition `below 4GB` with FAT is a good starting point. If you see an error message saying `"bad number"` when trying to mount `SD0` it may be an indication that your particular sd-card simply doesn't work with the sdbox for some reason.
 
-Everything done here is provide `as is`, don't blame us if your Amiga CIAs dies or your files get corrupted using the sdbox. I don't think it will happen though. Be careful though when plugging the sdbox in or out of the Amiga, always do this with the Amiga turned off.
+Everything done here is provide `as is`, don't blame us if your Amiga CIAs dies or your files get corrupted using the sdbox. I don't think it will happen though. Be careful though when plugging the sdbox in or out of the Amiga, always do that with the Amiga turned off.
 
     Some advice from Tom Handley / 18 April 93 (taken from pario on Aminet)
 
