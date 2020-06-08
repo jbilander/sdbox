@@ -15,6 +15,15 @@ This code uses the code from the amiga-par-to-spi-adapter https://github.com/nik
 <a href="images/sd_box_pic1.jpg">
 <img src="images/sd_box_pic1.jpg" width="260" height="195">
 </a>
+<a href="images/sdbox_front.jpg">
+<img src="images/sdbox_front.jpg" width="260" height="195">
+</a>
+<a href="images/sdbox_backside_pic1.jpg">
+<img src="images/sdbox_backside_pic1.jpg" width="260" height="195">
+</a>
+<a href="images/sdbox_backside_pic2.jpg">
+<img src="images/sdbox_backside_pic2.jpg" width="260" height="195">
+</a>
 
 ***
 
@@ -62,12 +71,17 @@ https://i.imgur.com/ADebdlJ.mp4
 <a href="images/vFinal-4view.png">
 <img src="images/vFinal-4view.png" width="256" height="205">
 </a>
+<br />
+
+More rendered pictures and concepts by `niva3d` under the `images/_renders` directory, made in blender, check it out!
 
 ***
 
 ### Howto build the spisd.device driver
 
 Check the readme in the sd folder.
+
+For the lazy: There will soon be binaries under the "release" tab above.
 
 ***
 
