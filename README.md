@@ -103,8 +103,18 @@ Many thanks to Mike Stirling for writing the original k1208-drivers and making t
 
 What about performance you may ask? 
 
-Well, Niklas managed to write the drivers with some real clever assembler to make it go at 2E-speed (theoretical 350 KB/s, IRL around 225 KB/s) if you have some kind of Accelerator installed in your A500. 
-Copying a 23 MB file from the SD-card to the compact flash in the HC508 took 98 seconds, giving a throughput of 225 KB/s. We think this is a good result given the fact of the slow clocking of the CIAs (E-clock). It will also work with a standard 68k CPU at 7 MHz albeit slower.
+Well, Niklas managed to write the drivers with some real clever assembler to make it go at 2E-speed (theoretical 350 KB/s, IRL around 225-280 KB/s) if you have some kind of Accelerator installed in your A500. 
+Copying a 23 MB file from the SD-card to the compact flash in the HC508 took 98 seconds, giving a throughput of 225 KB/s. We think this is a good result given the fact of the slow clocking of the CIAs (E-clock). It will also work with a standard 68k CPU at 7 MHz although slower.
+
+With my TF534 and 3.1 rom loaded into Fast RAM via the command "cpu fastrom" (requires a MMU) I get 280 KB/s in SysInfo, and without fastrom 250 KB/s. It is a little slower copying to the Amiga than from the Amiga.
+
+<a href="images/screenshots/sdcard_sysinfo_speed.jpg">
+<img src="images/screenshots/sdcard_sysinfo_speed.jpg" width="303" height="227">
+</a>
+<a href="images/screenshots/amiga_parallel_port_2E_speed.jpg">
+<img src="images/screenshots/amiga_parallel_port_2E_speed.jpg" width="290" height="188">
+</a>
+
 
 Speed definition of 2E here: <br />
 https://lallafa.de/blog/2015/09/amiga-parallel-port-how-fast-can-you-go/
