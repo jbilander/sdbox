@@ -20,6 +20,10 @@ This is a PCB made in KiCad (5.1.2-1) for hooking up an Arduino Nano V3 with a m
 
 ***
 
+For 3d-printing the sdbox case, check the README in the DSM folder.
+
+***
+
 BOM, NOT 100% verified  yet!!!, still need to verify the optional barrel jack power connector with or without U3 and the U3 circuit working or not.
 
 ***
