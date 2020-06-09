@@ -57,3 +57,12 @@ Copying driver file over via Kermit (`cki196.exe` for Amiga 3.1) and a null mode
 </a>
 
 ***
+
+If you get the `bad number`error when trying to access `SDO:` after mounting the `SD0` file it may be an indication that your card isn't compatible with the sdbox for some reason. Try another card and see if it works better.
+
+<a href="../images/screenshots/bad_number_error_mounting_sd0.jpg">
+<img src="../images/screenshots/bad_number_error_mounting_sd0.jpg" width="504" height="378">
+</a>
+
+
+***
