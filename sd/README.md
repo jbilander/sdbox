@@ -35,3 +35,25 @@ Install the [fat95 file system handler](http://aminet.net/package/disk/misc/fat9
     -rw-rw-r-- 1 jbilander jbilander 9521 Jun  7 23:43 spisd.device.map
     -rw-rw-r-- 1 jbilander jbilander  294 Jun  7 23:43 timer.o
     jbilander@apollo:~/projects/sdbox/sd/build-device$
+
+***
+
+Mounting `SD0:` on demand by double clicking the `SD0` file, you can also type `mount SD0:` in a shell-prompt.
+
+<a href="../images/screenshots/on_demand_mounting_sd0.jpg">
+<img src="../images/screenshots/on_demand_mounting_sd0.jpg" width="504" height="378">
+</a>
+
+***
+
+Copying driver file over via Kermit (`cki196.exe` for Amiga 3.1) and a null modem cable:
+
+<a href="../images/screenshots/kermit_transfer_pic1.jpg">
+<img src="../images/screenshots/kermit_transfer_pic1.jpg" width="504" height="378">
+</a>
+
+<a href="../images/screenshots/kermit_transfer_pic2.jpg">
+<img src="../images/screenshots/kermit_transfer_pic2.jpg" width="504" height="378">
+</a>
+
+***
