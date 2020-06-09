@@ -77,11 +77,18 @@ More rendered pictures and concepts by `niva3d` under the `images/_renders` dire
 
 ***
 
+### 3d-printing
+
+Check the README in the `hardware/DSM` folder
+
+
+***
+
 ### Howto build the spisd.device driver
 
-Check the readme in the sd folder.
+Check the README in the sd folder.
 
-For the lazy: There will soon be binaries under the "release" tab above.
+For the lazy: There will soon be binaries under the "releases" tab above.
 
 ***
 
