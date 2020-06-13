@@ -87,21 +87,6 @@ int __UserDevInit(struct Device *device)
 {
 	/* Open libraries */
 	SysBase = *(struct ExecBase**)4l;
-	ExpansionBase = (void*)OpenLibrary("expansion.library", 0);
-	if (ExpansionBase == NULL) {
-		ERROR("expansion.library not found\n");
-		goto error;
-	}
-	DOSBase = (void*)OpenLibrary("dos.library", 37);
-	if (DOSBase == NULL) {
-		ERROR("dos.library not found\n");
-		goto error;
-	}
-	UtilityBase = (void*)OpenLibrary("utility.library", 37);
-	if (UtilityBase == NULL) {
-		ERROR("utility.library not found\n");
-		goto error;
-	}
 
 	/* Allocate driver context */
 	ctx = AllocMem(sizeof(device_ctx_t), MEMF_PUBLIC | MEMF_CLEAR);
@@ -119,15 +104,6 @@ int __UserDevInit(struct Device *device)
 
 error:
 	/* Clean up after failed open */
-	if (UtilityBase) {
-		CloseLibrary((struct Library*)UtilityBase);
-	}
-	if (DOSBase) {
-		CloseLibrary((struct Library*)DOSBase);
-	}
-	if (ExpansionBase) {
-		CloseLibrary((struct Library*)ExpansionBase);
-	}
 	return 0;
 }
 
@@ -142,15 +118,6 @@ void __UserDevCleanup(void)
 	}
 
 	/* Clean up libs */
-	if (UtilityBase) {
-		CloseLibrary((struct Library*)UtilityBase);
-	}
-	if (DOSBase) {
-		CloseLibrary((struct Library*)DOSBase);
-	}
-	if (ExpansionBase) {
-		CloseLibrary((struct Library*)ExpansionBase);
-	}
 }
 
 int __UserDevOpen(struct IORequest *ioreq, uint32_t unit, uint32_t flags)
