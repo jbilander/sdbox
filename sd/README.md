@@ -46,6 +46,85 @@ Mounting `SD0:` on demand by double clicking the `SD0` file, you can also type `
 
 ***
 
+### Running sdbox on a stock A500 with wb 1.3 on KS 1.3 booting from floppy with drivers installed
+
+Running sdbox on a stock A500 with wb 1.3 on KS 1.3 original mask rom `v34.5` and booting wb adf (via gotek) with sdbox-drivers included. I removed the `printer.device` and the `printers` directory in order to get free space to fit the drivers on the floppy image.
+
+<a href="../images/sdbox_on_stock_A500_gotek_boot.jpg">
+<img src="../images/sdbox_on_stock_A500_gotek_boot.jpg" width="252" height="189">
+</a><br />
+
+Verifed working :
+* `wb 1.3 (v34.20)` (`BlockSize = 512` needs to be removed and the entry `Reserved = 0` to be in the mountfile `SD0`)
+* `wb 1.3.2 (v34.28)` (Requires `BlockSize = 512` entry in mountfile)
+* `wb 1.3.3 (v34.34)` (Requires `BlockSize = 512` entry in mountfile)
+
+Each entry must begin with the device name (in this case, `SD0:`) and must end with a number sign `#`.
+
+    SD0:  FileSystem     = l:fat95
+        Device         = spisd.device
+        Unit           = 0
+        Flags          = 0
+        LowCyl         = 0
+        HighCyl        = 0
+        Surfaces       = 1
+        BlocksPerTrack = 1
+        BlockSize      = 512
+        Reserved       = 0
+        Buffers        = 20
+        BufMemType     = 1
+        BootPri        = 0
+        StackSize      = 4096
+        Priority       = 5
+        GlobVec        = -1
+        DosType        = 0x46415401
+    #
+
+<a href="../images/screenshots/wb_1.3_v34.20.jpg">
+<img src="../images/screenshots/wb_1.3_v34.20.jpg" width="252" height="189">
+</a>
+<a href="../images/screenshots/wb_1.3.2_v34.28.jpg">
+<img src="../images/screenshots/wb_1.3.2_v34.28.jpg" width="252" height="189">
+</a>
+<a href="../images/screenshots/wb_1.3.3_v34.34.jpg">
+<img src="../images/screenshots/wb_1.3.3_v34.34.jpg" width="252" height="189">
+</a><br />
+
+Please note, in order to see files and folders appear as icons in wb 1.3 you need `*.icon` files of correct type that matches the names of your folder or file since 1.3 doesn't seem to have a "show all folder and files" option.
+
+
+***
+
+### Running sdbox on a stock A500 with wb 3.1 on KS 3.1 booting from floppy with drivers installed
+
+You can mount either via command line or double-click the SD0 file:
+
+<a href="../images/screenshots/wb_3.1_v40.42_pic1.jpg">
+<img src="../images/screenshots/wb_3.1_v40.42_pic1.jpg" width="252" height="189">
+</a>
+<a href="../images/screenshots/wb_3.1_v40.42_pic2.jpg">
+<img src="../images/screenshots/wb_3.1_v40.42_pic2.jpg" width="252" height="189">
+</a>
+
+***
+
+### Running sdbox on a A1200
+
+<a href="../images/sdbox_installed_on_A1200_pic1.jpg">
+<img src="../images/sdbox_installed_on_A1200_pic1.jpg" width="252" height="189">
+</a>
+<a href="../images/sdbox_installed_on_A1200_pic2.jpg">
+<img src="../images/sdbox_installed_on_A1200_pic2.jpg" width="252" height="189">
+</a><br />
+<a href="../images/screenshots/copying_drag_n_drop_A1200_314_pic1.jpg">
+<img src="../images/screenshots/copying_drag_n_drop_A1200_314_pic1.jpg" width="252" height="189">
+</a>
+<a href="../images/screenshots/copying_drag_n_drop_A1200_314_pic2.jpg">
+<img src="../images/screenshots/copying_drag_n_drop_A1200_314_pic2.jpg" width="252" height="189">
+</a>
+
+***
+
 Copying driver file over via Kermit (`cki196.exe` for Amiga 3.1) and a null modem cable:
 
 <a href="../images/screenshots/kermit_transfer_pic1.jpg">
