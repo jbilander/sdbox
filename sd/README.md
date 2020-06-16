@@ -89,8 +89,9 @@ Each entry must begin with the device name (in this case, `SD0:`) and must end w
 <a href="../images/screenshots/wb_1.3.3_v34.34.jpg">
 <img src="../images/screenshots/wb_1.3.3_v34.34.jpg" width="252" height="189">
 </a><br />
+<br />
 
-Please note, in order to see files and folders appear as icons in wb 1.3 you need `*.icon` files of correct type that matches the names of your folder or file since 1.3 doesn't seem to have a "show all folder and files" option.
+Please note, in order to see files and folders appear as icons in wb 1.3 you need `*.info` files of correct type that matches the names of your folder or file since 1.3 doesn't seem to have a "show all folder and files" option.
 
 
 ***
