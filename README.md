@@ -114,6 +114,20 @@ Everything done here is provide `as is`, don't blame us if your Amiga CIAs dies 
     causes of user-induced 8520 failures.
 ***
 
+The sequence I use when powering the sdbox via USB is this:
+
+* Plug the micro sd-card into the MicroSD card slot of the sdbox
+* With the Amiga turned off plug the sdbox into the Amiga 
+* Connect the +5V USB power cable into the sdbox, the two LEDs will light up with a steady shine. Don't worry that the activity LED light turns on, it's on when the SEL/CS line goes low (Zero). It will turn off as soon as the Amiga is turned on.
+* Turn on the Amiga
+* In wb mount the card
+* When done, turn off the Amiga, the sdbox Activity LED will light up again as a reminder to unplug the USB power cable
+* Unplug the sdbox from the Amiga if you want to remove it.
+
+This has worked without any issues for me.
+
+Hopefully powering via the barrel jack connector and U3 chip (Solid State Relay) will work and automatically handle the Power cycling following the Amiga's on/off.
+
 ### Kudos
 
 Many thanks to Mike Stirling for writing the original k1208-drivers and making them open source, we built further on his code. It was a good starting point. Thanks Mike and Kipper2K and others involved in k1208.
