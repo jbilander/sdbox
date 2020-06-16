@@ -88,7 +88,7 @@ Check the README in the `hardware/DSM` folder
 
 Check the README in the sd folder.
 
-For the lazy: There will soon be binaries under the "releases" tab above.
+For the lazy: Binaries available now in a zip file under the `release` tab above.
 
 ***
 
@@ -127,6 +127,8 @@ The sequence I use when powering the sdbox via USB is this:
 This has worked without any issues for me.
 
 Hopefully powering via the barrel jack connector and U3 chip (Solid State Relay) will work and automatically handle the Power cycling following the Amiga's on/off.
+
+***
 
 ### Kudos
 
