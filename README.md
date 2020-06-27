@@ -29,7 +29,7 @@ This code uses the code from the amiga-par-to-spi-adapter https://github.com/nik
 
 What is the sdbox for Amiga? 
 
-It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap MicroSD Card Adapter that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. `5V` via USB or `7-12V` via the barrel jack power connector that goes to the VIN of the Nano V3. The driver should be AmigaOS system friendly but takes exclusive access over the parallel port so don't expect to run other things on this port together with the sdbox with some kind of breakout cable. It should work from 1.3 and upwards, not verified on all OS versions yet though.
+It is a small device that you can plug into your Amiga's parallel port and get access to a sd-card formatted with e.g. a windows FAT file system. It uses an Arduino Nano V3 and a common cheap MicroSD Card Adapter that has a voltage level shifter on board. These small devices are soldered onto a small PCB together with a male d-sub db25 connector that fits into the Amiga parallel port (The A1000 needs a proper gender changer, be aware). The device must be powered externally either through the usb-connector on the Nano or via the separate barrel jack connector on the main PCB. A power supply with 1A DC capacity should suffice. `5V` via USB or `7-12V` via the barrel jack power connector that goes to the VIN of the Nano V3. The driver should be AmigaOS system friendly but takes exclusive access over the parallel port so don't expect to run other things on this port together with the sdbox with some kind of breakout cable. It should work from 1.3 and upwards, verified working on 1.3, 3.1 and 3.1.4 so far.
 
 The schematics, BOM, kicad drawings and the 3d-printable case source and stl files can all be found in the hardware folder.
 
@@ -73,7 +73,7 @@ https://i.imgur.com/ADebdlJ.mp4
 </a>
 <br />
 
-More rendered pictures and concepts by `niva3d` under the `images/_renders` directory, made in blender, check it out!
+More rendered pictures and concepts by `niva3d` under the `images/_renders` directory, made in Blender, check it out!
 
 ***
 
@@ -94,7 +94,7 @@ For the lazy: Binaries available now in a zip file under the `release` tab above
 
 ### Caveats
 
-One little caveat to keep in mind is that we do no CRC-verification of data being copied so please verify your files afterwards manually if you are going to copy important files over this way like taking a backup or something. Another caveat is that not all sd-cards might work with the sdbox so aim for a cheap 4/8 GB card and format it with a smaller partition `below 4GB` with FAT is a good starting point. If you see an error message saying `"bad number"` when trying to mount `SD0` it may be an indication that your particular sd-card simply doesn't work with the sdbox for some reason.
+One little caveat to keep in mind is that we do no CRC-verification of data being copied so please verify your files afterwards manually if you are going to copy important files over this way like taking a backup or something. Another caveat is that not all sd-cards might work with the sdbox so aim for a cheap 4/8 GB card and format it with a smaller partition `below 4GB` with FAT is a good starting point. If you see an error message saying `bad number` when trying to mount `SD0` it may be an indication that your particular sd-card simply doesn't work with the sdbox for some reason.
 
 Everything done here is provide `as is`, don't blame us if your Amiga CIAs dies or your files get corrupted using the sdbox. I don't think it will happen though. Be careful though when plugging the sdbox in or out of the Amiga, always do that with the Amiga turned off.
 
@@ -126,13 +126,13 @@ The sequence I use when powering the sdbox via USB is this:
 
 This has worked without any issues for me.
 
-Hopefully powering via the barrel jack connector and U3 chip (Solid State Relay) will work and automatically handle the Power cycling following the Amiga's on/off.
+Hopefully powering via the barrel jack and using U3 chip (Solid State Relay) will work and automatically handle the Power cycling following the Amiga's on/off.
 
 ***
 
 ### Kudos
 
-Many thanks to Mike Stirling for writing the original k1208-drivers and making them open source, we built further on his code. It was a good starting point. Thanks Mike and Kipper2K and others involved in k1208.
+Many thanks to Mike Stirling for writing the original k1208-drivers and making them open source, we built further on his code. It was a good starting point. Thanks Mike and kipper2k and others involved in k1208.
 
 ***
 
@@ -143,7 +143,7 @@ What about performance you may ask?
 Well, Niklas managed to write the drivers with some real clever assembler to make it go at 2E-speed (theoretical 350 KB/s, IRL around 225-280 KB/s) if you have some kind of Accelerator installed in your A500. 
 Copying a 23 MB file from the SD-card to the compact flash in the HC508 took 98 seconds, giving a throughput of 225 KB/s. We think this is a good result given the fact of the slow clocking of the CIAs (E-clock). It will also work with a standard 68k CPU at 7 MHz although slower.
 
-With my TF534 and 3.1 rom loaded into Fast RAM via the command "cpu fastrom" (requires a MMU) I get 280 KB/s in SysInfo, and without fastrom 250 KB/s. It is a little slower copying to the Amiga than from the Amiga.
+With my TF534 and 3.1 rom loaded into Fast RAM via the command `cpu fastrom` (requires a MMU) I get 280 KB/s in SysInfo, and without fastrom 250 KB/s. It is a little slower copying to the Amiga than from the Amiga.
 
 <a href="images/screenshots/sdcard_sysinfo_speed.jpg">
 <img src="images/screenshots/sdcard_sysinfo_speed.jpg" width="303" height="227">
@@ -183,7 +183,7 @@ Start with removing the angled pins from the MicroSD Card Adapter and replace wi
 
 ***
 
-Now we start soldering on the surface mount parts, the passives, also known as the bird seed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built-in magnifier glas, it works well, I do not have a scope. Use a fine tip with your solder iron...
+Now we start soldering on the surface mount parts, the passives, also known as the birdseed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built-in magnifier glass, it works well, I do not have a scope. Use a fine tip with your solder iron...
 
 ***
 
@@ -224,7 +224,7 @@ Now with the surface mount stuff done we do the through-hole stuff, solder on tw
 
 ***
 
-Now, with this type of connector the metal plate comes loose when you unscrew the connector nuts. We need to remove them because we don't want to remove them on the Amiga side. Use some super glue and a vice or similar to press them together a couple of minutes until the glue bites. Be quick if you use super glue! Then put the screws back while soldering, we want the metal pieces in there as a support taking some force off the pins when plugging the device in and out of the Amiga.
+Now, with this type of connector the metal plate comes loose when you unscrew the connector nuts. We need to remove them because we don't want to remove them on the Amiga side. Use some super glue and a vise or similar to press them together a couple of minutes until the glue bites. Be quick if you use super glue! Then put the screws back while soldering, we want the metal pieces in there as a support taking some force off the pins when plugging the device in and out of the Amiga.
 
 ***
 <a href="images/build/sdbox_build_pic16.jpg">
