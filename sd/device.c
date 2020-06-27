@@ -42,16 +42,12 @@
 #include "sd.h"
 #include "spi-par.h"
 
-#define K1208_MFG		12345
-#define K1208_PROD		0
-#define K1208_IO_BASE	0xe90000
-
 /* These must be globals and the variable names are important */
 const char DevName[] = "spisd.device";
 const char DevIdString[] = "spisd 0.3 (3 May 2020)";
 
 const UWORD DevVersion = 0;
-const UWORD DevRevision = 2;
+const UWORD DevRevision = 3;
 
 typedef struct {
 	struct Device		*device;
