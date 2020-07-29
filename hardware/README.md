@@ -24,7 +24,7 @@ For 3d-printing the sdbox case, check the README in the DSM folder.
 
 ***
 
-BOM, NOT 100% verified  yet!!!, still need to verify the optional barrel jack power connector with or without U3 and the U3 circuit working or not.
+BOM, now verified!
 
 Please note, you don't need to populate C1 if you're not going to use the barrel jack. R5 is only needed if U3 is populated.
 ***
