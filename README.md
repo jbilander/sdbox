@@ -281,11 +281,11 @@ Almost done!, time to put the LEDs in. To get the correct LED height for the sdb
 </a>
 
 ***
-### Update: Powering via the barell jack
+### Update: Powering via the barrel jack
 
-So I finally got parts to try out powering the device via the optional barrel jack. It seems to work just fine. I used a 9V DC 1A, center pin positive, adapter.
+So I finally got parts to try out powering the device via the optional barrel jack. It seems to work just fine. I used a `9V DC 1A`, center pin positive, adapter.
 
-Solder the barrel jack and the solid state relay (PVG612S) to the PCB. I made a small parallel extension adapter in order to let me easily measure the control current draw of the PVG612S.
+Solder the barrel jack and the solid state relay (PVG612S) to the PCB. I made a small parallel extension adapter in order to let me easily measure the control current draw of the `PVG612S`.
 
 ***
 
@@ -301,11 +301,11 @@ Solder the barrel jack and the solid state relay (PVG612S) to the PCB. I made a 
 
 ***
 
-Video clip below, as you can see powering of the sdbox is now controlled by the Amiga's on/off and you can just leave the sdbox always connected via the barrel jack. The control current draw for the solid state relay is around 9.7 mA which is just below the 10 mA max recommended draw from the Amigas parallel port pin 14. Great!
+Video clip below, as you can see powering of the sdbox is now controlled by the Amiga's on/off and you can just leave the sdbox always connected via the barrel jack. The control current draw for the solid state relay is around `9.7 mA` which is just below the `10 mA` max recommended draw from the Amigas parallel port pin 14. Great!
 
 https://i.imgur.com/eSkcy3X.mp4
 
-First checking the 9V adapter and verifying it is indeed center pin positive and output around 9V. It shows around 9.3V. The current draw I measured to around 9.7 mA with the 330 Ohm on R5 in series with the Amigas internal 47 Ohm. Voltage input to PVG612S is around 1.2V, perfect! The 5V on the Nano V3 shows 5.03V, Spot On!
+First checking the `9V` adapter and verifying it is indeed center pin positive and outputs around 9V. It shows around `9.3V`. The current draw I measured to around `9.7 mA` with the `330 Ohm` on R5 in series with the Amigas internal `47 Ohm`. Voltage input to `PVG612S` is around `1.2V`, perfect! The `5V` on the Nano V3 shows `5.03V`, Spot On!
 
 ***
 
