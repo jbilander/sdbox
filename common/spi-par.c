@@ -47,13 +47,16 @@ static void wait_until_idle(void)
 {
 	// This will block forever if the adapter is not present.
 	// TODO: Should eventually timeout and give up.
-
+	
+	uint16_t timeout = 65535;	// INFO: Very crude timeout implementation.
 	uint8_t ctrl = *cia_b_pra;
 	while (ctrl & IDLE_MASK)
 	{
 		ctrl ^= CLOCK_MASK;
 		*cia_b_pra = ctrl;
 		ctrl = *cia_b_pra;
+		timeout--;
+                if(timeout==0) break;
 	}
 }
 
