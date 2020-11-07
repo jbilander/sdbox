@@ -20,6 +20,7 @@
 #ifndef SPI_H_
 #define SPI_H_
 
+#include "timer.h"
 //#include <stdint.h>
 
 typedef enum {
