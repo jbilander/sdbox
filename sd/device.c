@@ -44,10 +44,10 @@
 
 /* These must be globals and the variable names are important */
 const char DevName[] = "spisd.device";
-const char DevIdString[] = "spisd 0.3 (3 May 2020)";
+const char DevIdString[] = "spisd 0.4 (8 Nov 2020)";
 
 const UWORD DevVersion = 0;
-const UWORD DevRevision = 3;
+const UWORD DevRevision = 4;
 
 typedef struct {
 	struct Device		*device;
