@@ -18,6 +18,8 @@
 #define CLOCK_MASK	(1 << CLOCK_BIT)
 #define IDLE_MASK	(1 << IDLE_BIT)
 
+#define DEVICE_TIMEOUT_MS	50
+
 static volatile uint8_t *cia_a_prb = (volatile uint8_t *)0xbfe101;
 static volatile uint8_t *cia_a_ddrb = (volatile uint8_t *)0xbfe301;
 
@@ -45,15 +47,19 @@ void spi_shutdown(void)
 
 static void wait_until_idle(void)
 {
-	// This will block forever if the adapter is not present.
-	// TODO: Should eventually timeout and give up.
-
+	// Timeout so that this will not block forever if the adapter is not present.
+	uint32_t timeout = timer_get_tick_count() + TIMER_MILLIS(DEVICE_TIMEOUT_MS);
+	
 	uint8_t ctrl = *cia_b_pra;
 	while (ctrl & IDLE_MASK)
 	{
 		ctrl ^= CLOCK_MASK;
 		*cia_b_pra = ctrl;
 		ctrl = *cia_b_pra;
+		// Timeout if adapter is not present.
+		if((int32_t)(timer_get_tick_count()-timeout) >= 0) {
+			break;
+		}
 	}
 }
 
