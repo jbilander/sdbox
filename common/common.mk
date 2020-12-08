@@ -20,7 +20,7 @@ vpath %.s $(SRCDIRS)
 vpath %.asm $(SRCDIRS)
 
 $(DIR)/$(FILENAME): $(DIR) $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 $(DIR):
 	mkdir $(DIR)

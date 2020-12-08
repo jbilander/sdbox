@@ -1,5 +1,5 @@
 build-device
-build-test
+build-device-debug
 Thumbs.db
 .DS_Store
 

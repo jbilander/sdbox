@@ -59,22 +59,23 @@ typedef unsigned int bool;
 
 #if DEBUG
 #include <stdio.h>
+#include <clib/debug_protos.h>
 #endif
 
 #if DEBUG > 0
-#define ERROR(a,...)		{ printf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
+#define ERROR(a,...)		{ kprintf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
 #else
 #define ERROR(...)
 #endif
 
 #if DEBUG > 1
-#define INFO(a,...)			{ printf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
+#define INFO(a,...)			{ kprintf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
 #else
 #define INFO(...)
 #endif
 
 #if DEBUG > 2
-#define TRACE(a,...)		{ printf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
+#define TRACE(a,...)		{ kprintf(__FILE__ "(%d): " a, __LINE__ , ##__VA_ARGS__); }
 #else
 #define TRACE(...)
 #endif
