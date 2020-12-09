@@ -5,7 +5,7 @@ OBJECTS=device.o spi-par.o spi-par-low.o sd.o timer.o
 SRCDIRS=. ../common
 INCDIRS=. ../common
 
-EXTRA_CFLAGS=-ramiga-dev -DDEBUG
+EXTRA_CFLAGS=-ramiga-dev -DDEBUG=3
 EXTRA_LDFLAGS=-ldebug
 
 include ../common/common.mk
