@@ -33,7 +33,7 @@ It is a small device that you can plug into your Amiga's parallel port and get a
 
 The schematics, BOM, kicad drawings and the 3d-printable case source and stl files can all be found in the hardware folder.
 
-PCBs can be order directly via link below or you can generate your own gerbers from the KiCad files and send them to your favorite boardhouse mfg.
+PCBs can be order directly via link below or you can send the gerbers zip (or generate gerbers yourself) and send them to your favorite boardhouse.
 
 https://aisler.net/p/YVXJBQHM
 
@@ -185,7 +185,7 @@ Start with removing the angled pins from the MicroSD Card Adapter and replace wi
 
 ***
 
-Now we start soldering on the surface mount parts, the passives, also known as the birdseed :) Start with Q1 and Q2, they are tiny so you probably need som sort of magnification. I use a lamp with a built-in magnifier glass, it works well, I do not have a scope. Use a fine tip with your solder iron...
+Now we start soldering on the surface mount parts, the passives, also known as the birdseed :) Start with Q1 and Q2, they are tiny so you probably need some sort of magnification. I use a lamp with a built-in magnifier glass, it works well, I do not have a microscope. Use a fine tip with your solder iron...
 
 ***
 
