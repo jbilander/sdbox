@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:sdbox-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -149,7 +148,7 @@ Wire Wire Line
 Text GLabel 4100 2450 0    50   Input ~ 0
 GND
 $Comp
-L Connector:Micro_SD_Card_Module U2
+L sdbox:Micro_SD_Card_Module U2
 U 1 1 5EB40C39
 P 7050 4900
 F 0 "U2" H 7000 4950 50  0000 L CNN
@@ -193,12 +192,12 @@ GND
 Text GLabel 6900 4250 1    50   Input ~ 0
 SCK
 $Comp
-L MCU_Microchip_AVR:Arduino_Nano_V3 U1
+L sdbox:Arduino_Nano_V3 U1
 U 1 1 5EB5B4AA
 P 5450 4100
 F 0 "U1" H 5450 4250 50  0000 C CNN
 F 1 "Arduino_Nano_V3" H 5950 3050 50  0000 C CNN
-F 2 "Arduino:Arduino_Nano_V3_Schield" H 5450 4100 50  0001 C CNN
+F 2 "sdbox:Arduino_Nano_V3_Schield" H 5450 4100 50  0001 C CNN
 F 3 "" H 5450 4100 50  0001 C CNN
 	1    5450 4100
 	1    0    0    -1  
@@ -220,13 +219,13 @@ MISO
 Text GLabel 4800 4750 0    50   Output ~ 0
 MOSI
 $Comp
-L Relay_SolidState:PVG612S U3
+L sdbox:PVG612S U3
 U 1 1 5EB77D01
 P 6050 2650
 F 0 "U3" H 6050 2450 50  0000 C CNN
 F 1 "PVG612S" H 6050 2950 50  0000 C CNN
-F 2 "Relay_SMD:SOIC254P978X443-6N" H 6120 3225 50  0001 C CNN
-F 3 "" H 6120 3225 50  0001 C CNN
+F 2 "sdbox:SOIC254P978X443-6N" H 6120 3225 50  0001 C CNN
+F 3 "https://www.infineon.com/dgdl/Infineon-PVG612-DataSheet-v01_00-EN.pdf?fileId=5546d462533600a401535683c1892937" H 6120 3225 50  0001 C CNN
 	1    6050 2650
 	1    0    0    -1  
 $EndComp
@@ -277,7 +276,7 @@ Connection ~ 6250 3100
 Wire Wire Line
 	6150 3650 6450 3650
 Text Notes 5200 2250 0    50   ~ 0
-Optional for power down when \nAmiga is shutdown
+Optional for powering on/off \nwith the Amiga’s on/off
 NoConn ~ 4800 3950
 NoConn ~ 4800 4450
 NoConn ~ 4800 4550
@@ -331,8 +330,6 @@ Wire Notes Line
 	8100 2300 8100 3000
 Wire Notes Line
 	6600 2300 8100 2300
-Wire Notes Line
-	6600 3000 8100 3000
 Text Notes 5390 5030 1    50   ~ 0
 VCC\n
 Text Notes 5590 5030 1    50   ~ 0
@@ -412,8 +409,6 @@ ACK
 Text GLabel 5550 2500 0    50   Input ~ 0
 Amiga5V
 Wire Notes Line
-	6550 2050 6550 2950
-Wire Notes Line
 	5100 2050 5100 2950
 $Comp
 L Device:R_Small R5
@@ -421,7 +416,7 @@ U 1 1 5EC32818
 P 5650 2500
 F 0 "R5" V 5546 2500 50  0000 C CNN
 F 1 "R_Small" V 5545 2500 50  0001 C CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5650 2500 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 5650 2500 50  0001 C CNN
 F 3 "~" H 5650 2500 50  0001 C CNN
 	1    5650 2500
 	0    1    1    0   
@@ -450,8 +445,6 @@ F 3 "~" H 5750 5550 50  0001 C CNN
 $EndComp
 NoConn ~ 5550 5550
 NoConn ~ 5150 5550
-Wire Notes Line
-	6550 2950 5100 2950
 Wire Notes Line
 	6550 2050 5100 2050
 Text Notes 5050 5700 0    50   ~ 0
@@ -571,4 +564,22 @@ Wire Notes Line
 	9450 3050 9450 4450
 Wire Notes Line
 	7500 3050 7500 4450
+Wire Notes Line
+	6550 2950 5100 2950
+Wire Notes Line
+	6550 2050 6550 2950
+Wire Notes Line
+	6600 3000 6850 3000
+Wire Notes Line
+	6850 3000 6850 3250
+Wire Notes Line
+	6850 3250 6200 3250
+Wire Notes Line
+	6200 3250 6200 3450
+Wire Notes Line
+	6200 3450 7450 3450
+Wire Notes Line
+	7450 3450 7450 3000
+Wire Notes Line
+	7450 3000 8100 3000
 $EndSCHEMATC
