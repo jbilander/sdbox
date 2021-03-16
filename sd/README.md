@@ -138,7 +138,7 @@ Copying driver file over via Kermit (`cki196.exe` for Amiga 3.1) and a null mode
 
 ***
 
-If you get the `bad number`error when trying to access `SDO:` after mounting the `SD0` file it may be an indication that your card isn't compatible with the sdbox for some reason. Try another card and see if it works better.
+If you get the `bad number`error when trying to access `SDO:` after mounting the `SD0` file it may be an indication that your card isn't compatible with the sdbox for some reason. Probably you need a 10k pull-up resistor on the MISO-line, check under the Issues tab for how to do this. You can follow SukkoPeras instructions of where to solder the pull-up resistor. Many thanks to SukkoPera for contributing. You can check for activity on MISO/MOSI if you have access to an oscilloscope or a logic analyzer.
 
 <a href="../images/screenshots/bad_number_error_mounting_sd0.jpg">
 <img src="../images/screenshots/bad_number_error_mounting_sd0.jpg" width="504" height="378">
