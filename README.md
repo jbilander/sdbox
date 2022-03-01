@@ -1,9 +1,9 @@
-# sdbox for Amiga
+# SDBox for Amiga
 
 ***
 This version `v1` is superseded by the new `SDBox-v2` here: https://github.com/jbilander/SDBox-v2
 
-There is also a SDBox Mini in the works but not yet released/tested due to an item being on backorder.
+There is also a SDBox Mini available here: https://github.com/jbilander/SDBox-Mini
 ***
 
 
